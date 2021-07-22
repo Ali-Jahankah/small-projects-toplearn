@@ -1,0 +1,29 @@
+.svgPath {
+  transform: translate (0, 0px);
+  opacity: 1;
+  filter: blur(4px);
+  display: inline;
+}
+#wave {
+  min-width: 100%;
+  transform: rotate(180deg);
+  transition: 0.3s;
+  display: inline;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  filter: blur(4px);
+}
+
+.stopColor1 {
+  stop-color: transparent;
+}
+.stopColor2 {
+  stop-color: pink;
+}
+@media screen and (max-width: 481px) {
+  #wave {
+    display: none;
+  }
+}
