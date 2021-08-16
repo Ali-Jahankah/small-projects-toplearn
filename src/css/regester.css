@@ -1,0 +1,112 @@
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+#regesterDiv {
+  width: 35%;
+  display: inline-block;
+  margin-left: 3%;
+  margin-bottom: 2.5rem;
+  box-shadow: 10px 16px 29px 8px #000000;
+}
+#regesterForm {
+  border-top: 2px solid rgb(255, 217, 0);
+  border-bottom: 2px solid rgb(229, 255, 0);
+  border-radius: 10px;
+  padding: 10%;
+  background: rgba(0, 0, 0, 0.719);
+}
+::placeholder {
+  color: rgb(0, 0, 0);
+}
+
+#regesterDiv #regesterForm ul {
+  text-align: center;
+}
+#regesterDiv #regesterForm ul li {
+  list-style: none;
+  margin: 8px 0px;
+}
+#regesterDiv #regesterForm ul li input {
+  width: 80%;
+  background: rgba(255, 255, 255, 0.63);
+}
+#regesterDiv #regesterForm ul li input,
+.regester_sub_button {
+  padding: 2.5vh 1vw;
+  border-radius: 15px;
+  border-right: 2px solid rgb(255, 0, 136);
+  border-left: 2px solid rgb(54, 0, 29);
+  outline: 0;
+  cursor: pointer;
+  transition: width 1s, background-color 1s;
+}
+#regesterDiv #regesterForm ul li input:focus {
+  border-top: 2px solid rgb(183, 0, 255);
+  border-bottom: 2px solid rgb(255, 0, 212);
+  width: 100%;
+  background: rgb(255, 255, 255);
+}
+.regester_sub_button:hover {
+  font-weight: 700;
+  font-size: 1rem;
+  background: linear-gradient(90deg, rgb(255, 0, 98), rgb(231, 126, 187));
+}
+.regester_sub_button {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 98, 0.61),
+    rgba(231, 126, 187, 0.699)
+  );
+}
+#regesterTitle {
+  color: white;
+  font-family: cursive, Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-bottom: 2vh;
+  text-shadow: 2px 0px 8px yellow;
+}
+/* ============================================================================================
+==============================================================================================
+============================================================================================ */
+@media screen and (max-width: 850px) {
+  #regesterDiv #regesterForm ul li input,
+  .regester_sub_button {
+    padding: 2vh 2vw;
+    border-radius: 15px;
+    border-right: 2px solid rgb(255, 0, 136);
+    border-left: 2px solid rgb(209, 93, 155);
+    outline: 0;
+    box-shadow: 3px 0px 8px 8px rgba(0, 0, 0, 0.541);
+  }
+  #regesterDiv {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+  }
+  #regesterTitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 2.5rem;
+    text-shadow: 4px 0px 8px rgb(240, 240, 24);
+  }
+  .regester_sub_button {
+    width: 40%;
+    font-size: 1.2rem;
+    box-shadow: 2px 2px 8px rgb(255, 230, 0);
+  }
+}
+/* ============================================================================================
+==============================================================================================
+============================================================================================ */
+
+@media screen and (orientation: landscape) and (max-height: 370px) {
+  #regesterDiv {
+    width: 40%;
+    height: 100vh;
+    margin: 0 auto 15%;
+  }
+}

@@ -103,9 +103,9 @@ const People = () => {
     myPeople.push(newPerson);
     setPeople(myPeople);
     const test = {
-      fullname: "ali",
-      email: "asadsasd",
-      password: "cwr8yu",
+      fullname: "aspyiasda",
+      email: "fsdfdasd@yahoo.com",
+      password: "cwrsd8asdGAS321$#$",
     };
     try {
       const { status, data } = await userRegister(test);

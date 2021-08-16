@@ -7,6 +7,7 @@ import People from "./People";
 import ToDo from "./ToDo";
 import NotFound from "./NotFound";
 import TaskContextProvider from "./TaskContext";
+import Regester from "./Regester";
 // import EditForm from "./EditForm";
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" component={HomePage} exact></Route>
           <Route path="/Home" component={HomePage}></Route>
           <Route path="/People" component={People}></Route>
+          <Route path="/Regester" component={Regester}></Route>
           <TaskContextProvider>
             <Route path="/Todo" component={ToDo}></Route>
           </TaskContextProvider>

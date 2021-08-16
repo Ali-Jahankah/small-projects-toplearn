@@ -6,8 +6,31 @@
   background: transparent;
   z-index: 99;
 }
-.menuDiv {
-  width: 60%;
+.login_form {
+}
+.login_input,
+.login_button {
+  padding: 5px;
+  margin: 5px;
+  font-size: 1.2vw;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.login_button {
+  background: rgba(228, 65, 214, 0.438);
+  color: pink;
+}
+.login_button:hover {
+  background: rgba(228, 65, 214);
+  color: black;
+}
+.login_input {
+  background: rgba(0, 0, 0, 0.692);
+  border-bottom: 2px solid black;
+  color: white;
+}
+.login_input::placeholder {
+  color: white;
 }
 .menuDiv ul {
   display: flex;
