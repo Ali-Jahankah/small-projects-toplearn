@@ -5,7 +5,7 @@ import EditContextProvider from "./EditContext";
 import HomePage from "./HomePage";
 import People from "./People";
 import ToDo from "./ToDo";
-import NotFound from "./NotFound";
+// import NotFound from "./NotFound";
 import TaskContextProvider from "./TaskContext";
 import Regester from "./Regester";
 // import EditForm from "./EditForm";
