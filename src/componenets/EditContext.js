@@ -10,7 +10,8 @@ const EditContextProvider = ({ children }) => {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
   return (
     <EditContext.Provider
       value={{
@@ -28,6 +29,10 @@ const EditContextProvider = ({ children }) => {
         setEmail,
         password,
         setPassword,
+        loginEmail,
+        setLoginEmail,
+        loginPassword,
+        setLoginPassword,
       }}
     >
       {children}

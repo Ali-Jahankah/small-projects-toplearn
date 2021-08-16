@@ -1,9 +1,26 @@
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { EditContext } from "./EditContext";
+import { useContext } from "react";
 import styles from "../css/navbody.css";
+import { userLogin } from "../services/useService";
 const NavBody = () => {
-  const handleLogin = (e) => {
+  const context = useContext(EditContext);
+  const handleLogin = async (e) => {
     e.preventDefault();
-    alert("Submit");
+    const email = context.loginEmail;
+    const password = context.loginPassword;
+    const user = { email, password };
+    console.log(user);
+    try {
+      const { status, data } = await userLogin(user);
+      if (status === 200) {
+        alert("Login Successfuly!");
+        console.log(data);
+      }
+    } catch (ex) {
+      console.log(ex);
+      alert("User not found!");
+    }
   };
   return (
     <>
@@ -54,11 +71,19 @@ const NavBody = () => {
               type="text"
               placeholder="Email Address"
               className={styles.login_input}
+              value={context.loginEmail}
+              onChange={(e) => {
+                context.setLoginEmail(e.target.value);
+              }}
             ></input>
             <input
               type="password"
               placeholder="Password"
               className={styles.login_input}
+              value={context.loginPassword}
+              onChange={(e) => {
+                context.setLoginPassword(e.target.value);
+              }}
             ></input>
             <button type="submit" className={styles.login_button}>
               Login
