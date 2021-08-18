@@ -1,21 +1,28 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { EditContext } from "./EditContext";
 import { useContext } from "react";
 import styles from "../css/navbody.css";
 import { userLogin } from "../services/useService";
-const NavBody = () => {
+const NavBody = ({ history }) => {
   const context = useContext(EditContext);
+
+  const reset = () => {
+    context.setLoginEmail("");
+    context.setLoginPassword("");
+  };
   const handleLogin = async (e) => {
     e.preventDefault();
     const email = context.loginEmail;
     const password = context.loginPassword;
     const user = { email, password };
-    console.log(user);
     try {
       const { status, data } = await userLogin(user);
       if (status === 200) {
         alert("Login Successfuly!");
         console.log(data);
+        localStorage.setItem("token", data.token);
+        reset();
+        history.replace("/");
       }
     } catch (ex) {
       console.log(ex);
@@ -98,4 +105,4 @@ const NavBody = () => {
   );
 };
 
-export default NavBody;
+export default withRouter(NavBody);
