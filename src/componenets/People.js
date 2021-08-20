@@ -7,8 +7,8 @@ import uuid from "react-uuid";
 import EditForm from "./EditForm";
 import { EditContext } from "./EditContext";
 import { Redirect, Route, useRouteMatch } from "react-router-dom";
-import axios from "axios";
 import { userRegister } from "../services/useService";
+import { Helmet } from "react-helmet";
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -165,6 +165,10 @@ const People = () => {
         <Redirect to={path}></Redirect>
       )}
       <div id={styles.peopleContainer}>
+        <Helmet>
+          {" "}
+          <title>People Management | Small projects</title>
+        </Helmet>
         <PeopleForm></PeopleForm>
         <div className={styles.allPeople}>
           <table className={styles.allPeople_table}>

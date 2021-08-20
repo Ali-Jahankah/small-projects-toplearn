@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import SingleTask from "./SingleTask";
 import { TaskContext } from "./TaskContext";
 import uuid from "react-uuid";
+import { Helmet } from "react-helmet";
 const Todo = () => {
   const context = useContext(TaskContext);
 
@@ -60,6 +61,10 @@ const Todo = () => {
   return (
     <>
       <div className={styles.container}>
+        <Helmet>
+          {" "}
+          <title>To Do | Small projects</title>
+        </Helmet>
         <div className={styles.writing_tasks}>
           <div className={styles.overlay}></div>
           <div className={styles.writing_container}>

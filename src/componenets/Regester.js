@@ -1,13 +1,16 @@
+import React from "react";
 import styles from "../css/regester.css";
 import { useContext, useRef, useState } from "react";
 import { EditContext } from "./EditContext";
 import { userRegister } from "../services/useService";
-
+import { Sugar } from "react-preloaders2";
 import validation from "simple-react-validator";
 import { withRouter } from "react-router";
+import { Helmet } from "react-helmet";
 const Regester = ({ history }) => {
   const context = useContext(EditContext);
   const [, forceUpdate] = useState();
+  const [loading, setLoading] = useState(false);
   const validator = useRef(
     new validation({
       messages: {
@@ -31,12 +34,15 @@ const Regester = ({ history }) => {
     };
     try {
       if (validator.current.allValid()) {
+        setLoading(true);
         const { status, data } = await userRegister(newPerson);
         if (status === 201) {
-          alert("Regester successfuly!");
+          console.log(loading);
           console.log(data);
+          setLoading(false);
           reset();
           history.replace("/");
+          console.log(loading);
         }
       } else {
         validator.current.showMessages();
@@ -45,6 +51,7 @@ const Regester = ({ history }) => {
     } catch (ex) {
       alert("Problem");
       console.log(ex);
+      setLoading(false);
     }
   };
 
@@ -83,7 +90,14 @@ const Regester = ({ history }) => {
   // };
   return (
     <>
+      <Helmet>
+        {" "}
+        <title>Register | Small projects</title>
+      </Helmet>
       <div id={styles.regesterDiv}>
+        {loading ? (
+          <Sugar time={0} color="#fc03d7" customLoading={loading} />
+        ) : null}
         <form id={styles.regesterForm} onSubmit={formSubmit}>
           <h1 id={styles.regesterTitle}>Let's Regester</h1>
           <ul>

@@ -1,11 +1,14 @@
+import React from "react";
+
 import { NavLink, withRouter } from "react-router-dom";
 import { EditContext } from "./EditContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import styles from "../css/navbody.css";
 import { userLogin } from "../services/useService";
+import { Lines } from "react-preloaders2";
 const NavBody = ({ history }) => {
   const context = useContext(EditContext);
-
+  const [loading, setLoading] = useState(false);
   const reset = () => {
     context.setLoginEmail("");
     context.setLoginPassword("");
@@ -16,21 +19,24 @@ const NavBody = ({ history }) => {
     const password = context.loginPassword;
     const user = { email, password };
     try {
+      setLoading(true);
       const { status, data } = await userLogin(user);
       if (status === 200) {
-        alert("Login Successfuly!");
         console.log(data);
         localStorage.setItem("token", data.token);
+        setLoading(false);
         reset();
         history.replace("/");
       }
     } catch (ex) {
+      setLoading(false);
       console.log(ex);
       alert("User not found!");
     }
   };
   return (
     <>
+      {loading ? <Lines time={0} customLoading={loading} /> : null}
       <div id={styles.container}>
         <div className={styles.menuDiv}>
           <ul>

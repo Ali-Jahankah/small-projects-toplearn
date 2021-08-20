@@ -1,9 +1,15 @@
+import React from "react";
+import { Helmet } from "react-helmet";
+
 import { NavLink } from "react-router-dom";
 import styles from "../css/homepage.css";
 const HomePage = () => {
   return (
     <>
       <h2 className={styles.headerText}>Choose your Topic:</h2>
+      <Helmet>
+        <title>Home page | Small projects</title>
+      </Helmet>
       <div className={styles.main}>
         <div id={styles.container}>
           <NavLink to="/ToDo">
