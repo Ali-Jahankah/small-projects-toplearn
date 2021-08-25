@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 
 import { NavLink } from "react-router-dom";
 import styles from "../css/homepage.css";
+
 const HomePage = () => {
   return (
     <>

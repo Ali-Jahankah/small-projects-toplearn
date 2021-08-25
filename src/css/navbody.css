@@ -6,12 +6,22 @@
   background: transparent;
   z-index: 99;
 }
-
+.login_form_div {
+  width: 50%;
+  background-color: rgba(112, 48, 112, 0.753);
+  margin: 5% auto;
+  text-align: center;
+}
+.login_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .login_input,
 .login_button {
-  padding: 5px;
-  margin: 5px;
-  font-size: 1.2vw;
+  padding: 10px;
+  margin: 10px;
+  font-size: 2vw;
   cursor: pointer;
   border-radius: 10px;
 }
