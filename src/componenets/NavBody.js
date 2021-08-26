@@ -71,7 +71,17 @@ const NavBody = () => {
             </li>
           </ul>
         </div>
-
+        <div className={styles.hamburger_button}>
+          <div
+            className={`${styles.hamburger_parts} ${styles.first_part}`}
+          ></div>
+          <div
+            className={`${styles.hamburger_parts} ${styles.second_part}`}
+          ></div>
+          <div
+            className={`${styles.hamburger_parts} ${styles.third_part}`}
+          ></div>
+        </div>
         <div className={styles.menuLogo}>
           <img src="/images/navlogo.png " alt="menu-logo"></img>
         </div>

@@ -6,6 +6,9 @@
   background: transparent;
   z-index: 99;
 }
+.hamburger_button {
+  display: none;
+}
 .login_form_div {
   width: 50%;
   background-color: rgba(112, 48, 112, 0.753);
@@ -73,11 +76,32 @@
   color: rgb(241, 2, 42);
 }
 @media screen and (max-width: 481px) {
-  #container img {
-    max-height: 20vw;
+  .menuDiv {
+    display: none;
   }
-  .menuDiv ul li a {
-    text-decoration: none;
-    font-size: 3vw;
+  .hamburger_button {
+    display: block;
+    cursor: pointer;
+    width: 10vw;
+    z-index: 8;
+    margin: 12px 0 0 12px;
+  }
+  .hamburger_parts {
+    width: 100%;
+    padding: 3px;
+    background: red;
+    margin: 2px 0;
+  }
+
+  .first_part {
+    transform: rotate(-50deg) translate(-15%, 80%);
+    transform-origin: center;
+  }
+  .second_part {
+    display: none;
+  }
+  .third_part {
+    transform: rotate(45deg);
+    transform-origin: center;
   }
 }

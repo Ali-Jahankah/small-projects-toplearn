@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NavBody from "./NavBody";
 import Menusvg from "./Menusvg";
+import { memo } from "react";
 import EditContextProvider from "./EditContext";
 import HomePage from "./HomePage";
 import People from "./People";
@@ -10,19 +11,19 @@ import ToDo from "./ToDo";
 import TaskContextProvider from "./TaskContext";
 import Regester from "./Regester";
 import CounterRedux from "./CounterRedux";
-
 import Login from "./Login";
 import { Provider } from "react-redux";
 import { store } from "../store";
+import MobileNavBody from "./MobileNavBody";
 
 function App() {
- 
   return (
     <Provider store={store}>
       <EditContextProvider>
         <Menusvg></Menusvg>
         <Router>
           <NavBody></NavBody>
+          <MobileNavBody></MobileNavBody>
           <Switch>
             <Route path="/" component={HomePage} exact></Route>
             <Route path="/Home" component={HomePage}></Route>
@@ -42,4 +43,4 @@ function App() {
   );
 }
 
-export default App;
+export default memo(App);

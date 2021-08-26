@@ -98,25 +98,11 @@ const People = () => {
     handleSubmit(newPerson);
   };
 
-  const handleSubmit = async (newPerson) => {
+  const handleSubmit = (newPerson) => {
     let myPeople = [...people];
     myPeople.push(newPerson);
     setPeople(myPeople);
-    const test = {
-      fullname: "aspyiasda",
-      email: "fsdfdasd@yahoo.com",
-      password: "cwrsd8asdGAS321$#$",
-    };
-    try {
-      const { status, data } = await userRegister(test);
-      if (status === 201) {
-        alert("successful!");
-        console.log(data);
-      }
-    } catch (ex) {
-      alert("problem");
-      console.log(ex);
-    }
+
     // .then(({ data, status }) => {
 
     //   console.log(data);
