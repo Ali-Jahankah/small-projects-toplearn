@@ -1,16 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "../css/mobilenav.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Visible } from "../actions/MobileNavAction";
 const MobileNavBody = () => {
   const dispatch = useDispatch();
+  const menu = useSelector((state) => state.menu);
   const closeMenuHandler = () => {
     dispatch(Visible());
   };
   return (
     <>
-      <div className={styles.menu_div}>
+      <div className={menu ? styles.menu_div : styles.hide_menu}>
         <ul>
           <li onClick={closeMenuHandler}>
             <NavLink
@@ -67,10 +68,6 @@ const MobileNavBody = () => {
             </NavLink>
           </li>
         </ul>
-      </div>
-
-      <div className={styles.menuLogo}>
-        <img src="/images/navlogo.png " alt="menu-logo"></img>
       </div>
     </>
   );

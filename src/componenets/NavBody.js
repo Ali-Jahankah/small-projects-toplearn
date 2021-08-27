@@ -70,10 +70,6 @@ const NavBody = () => {
                 Redux-Counter
               </NavLink>
             </li>
-            <li style={{ fontSize: "2vw", fontWeight: "bold" }}>
-              {" "}
-              {login ? "You are signed in!" : null}
-            </li>
           </ul>
         </div>
         <div className={styles.hamburger_button} onClick={mobileMenuHandler}>
@@ -93,7 +89,10 @@ const NavBody = () => {
             }`}
           ></div>
         </div>
-        {login ? "You are signed in!" : null}
+        <span style={{ fontSize: "2vw", fontWeight: "bold" }}>
+          {" "}
+          {login ? "You are signed in!" : null}
+        </span>
 
         <div className={styles.menuLogo}>
           <img src="/images/navlogo.png " alt="menu-logo"></img>

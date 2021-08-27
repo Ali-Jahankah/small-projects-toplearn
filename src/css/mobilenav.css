@@ -2,6 +2,9 @@
   .menu_div {
     display: none;
   }
+  .hide_menu {
+    display: none;
+  }
   .menuLogo {
     display: none;
   }
@@ -9,27 +12,40 @@
 
 @media screen and (max-width: 620px) {
   .menu_div {
-    display: initial;
+    display: block;
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    background: #3e1724;
+    background: #130e10;
     z-index: 5;
+    transition: all 2s;
+    transform: translateX(0%);
   }
   .hide_menu {
-    display: none;
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #0e68c5;
+    z-index: 5;
+    transform: translateX(100%);
+    transition: all 2s;
   }
 
-  .menu_div ul {
+  .menu_div ul,
+  .hide_menu ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
     justify-content: space-evenly;
   }
-  .menu_div ul li {
+  .menu_div ul li,
+  .hide_menu ul li {
     list-style: none;
     padding: 10px;
     backdrop-filter: blur(1px);
@@ -39,13 +55,13 @@
     color: rgb(241, 2, 42) !important;
     border-bottom: 2px solid black;
   }
-  .menu_div ul li a {
+  .menu_div ul li a,
+  .hide_menu ul li a {
     text-decoration: none;
     font-size: 6vw;
     font-weight: 800;
   }
 
- 
   .links {
     color: rgb(234, 123, 238);
   }

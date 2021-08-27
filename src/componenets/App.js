@@ -14,17 +14,14 @@ import CounterRedux from "./CounterRedux";
 import Login from "./Login";
 
 import MobileNavBody from "./MobileNavBody";
-import { useSelector } from "react-redux";
 
 function App() {
-  const menu = useSelector((state) => state.menu);
-
   return (
     <EditContextProvider>
       <Menusvg></Menusvg>
       <Router>
         <NavBody></NavBody>
-        {menu ? <MobileNavBody></MobileNavBody> : null}
+        <MobileNavBody></MobileNavBody>
         <Switch>
           <Route path="/" component={HomePage} exact></Route>
           <Route path="/Home" component={HomePage}></Route>
