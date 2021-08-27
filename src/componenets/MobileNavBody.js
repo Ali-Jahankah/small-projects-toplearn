@@ -1,13 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "../css/mobilenav.css";
-
+import { useDispatch } from "react-redux";
+import { Visible } from "../actions/MobileNavAction";
 const MobileNavBody = () => {
+  const dispatch = useDispatch();
+  const closeMenuHandler = () => {
+    dispatch(Visible());
+  };
   return (
     <>
       <div className={styles.menu_div}>
         <ul>
-          <li>
+          <li onClick={closeMenuHandler}>
             <NavLink
               className={styles.links}
               activeClassName={styles.activLink}
@@ -16,7 +21,7 @@ const MobileNavBody = () => {
               Home
             </NavLink>
           </li>
-          <li>
+          <li onClick={closeMenuHandler}>
             <NavLink
               className={styles.links}
               activeClassName={styles.activLink}
@@ -25,7 +30,7 @@ const MobileNavBody = () => {
               People
             </NavLink>
           </li>
-          <li>
+          <li onClick={closeMenuHandler}>
             <NavLink
               className={styles.links}
               activeClassName={styles.activLink}
@@ -34,7 +39,7 @@ const MobileNavBody = () => {
               ToDo
             </NavLink>
           </li>
-          <li>
+          <li onClick={closeMenuHandler}>
             <NavLink
               className={styles.links}
               activeClassName={styles.activLink}
@@ -43,7 +48,7 @@ const MobileNavBody = () => {
               Register
             </NavLink>
           </li>
-          <li>
+          <li onClick={closeMenuHandler}>
             <NavLink
               className={styles.links}
               activeClassName={styles.activLink}
@@ -52,7 +57,7 @@ const MobileNavBody = () => {
               Login
             </NavLink>
           </li>
-          <li>
+          <li onClick={closeMenuHandler}>
             <NavLink
               className={styles.links}
               activeClassName={styles.activLink}
@@ -60,10 +65,6 @@ const MobileNavBody = () => {
             >
               Redux-Counter
             </NavLink>
-          </li>
-          <li style={{ fontSize: "2vw", fontWeight: "bold" }}>
-            {" "}
-            {/* {login ? "You are signed in!" : null} */}
           </li>
         </ul>
       </div>

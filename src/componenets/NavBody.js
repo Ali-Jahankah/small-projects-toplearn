@@ -1,11 +1,16 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { NavLink, withRouter } from "react-router-dom";
+import { Visible } from "../actions/MobileNavAction";
 import styles from "../css/navbody.css";
 const NavBody = () => {
+  const dispatch = useDispatch();
   const login = useSelector((state) => state.login);
-  console.log(login);
+  const menu = useSelector((state) => state.menu);
+  const mobileMenuHandler = () => {
+    dispatch(Visible());
+  };
   return (
     <>
       <div id={styles.container}>
@@ -71,17 +76,25 @@ const NavBody = () => {
             </li>
           </ul>
         </div>
-        <div className={styles.hamburger_button}>
+        <div className={styles.hamburger_button} onClick={mobileMenuHandler}>
           <div
-            className={`${styles.hamburger_parts} ${styles.first_part}`}
+            className={`${styles.hamburger_parts} ${
+              menu ? styles.first_part : null
+            }`}
           ></div>
           <div
-            className={`${styles.hamburger_parts} ${styles.second_part}`}
+            className={`${styles.hamburger_parts} ${
+              menu ? styles.second_part : null
+            } `}
           ></div>
           <div
-            className={`${styles.hamburger_parts} ${styles.third_part}`}
+            className={`${styles.hamburger_parts} ${
+              menu ? styles.third_part : null
+            }`}
           ></div>
         </div>
+        {login ? "You are signed in!" : null}
+
         <div className={styles.menuLogo}>
           <img src="/images/navlogo.png " alt="menu-logo"></img>
         </div>

@@ -75,7 +75,7 @@
 .links:hover {
   color: rgb(241, 2, 42);
 }
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 620px) {
   .menuDiv {
     display: none;
   }
@@ -88,13 +88,23 @@
   }
   .hamburger_parts {
     width: 100%;
-    padding: 3px;
-    background: red;
+    padding: 4px;
+    display: block;
     margin: 2px 0;
+    transition: all 1.2s;
+  }
+  .hamburger_parts:nth-child(1) {
+    background: linear-gradient(rgb(230, 0, 0), rgb(255, 123, 0));
+  }
+  .hamburger_parts:nth-child(2) {
+    background: linear-gradient(yellow, rgb(2, 177, 2));
+  }
+  .hamburger_parts:nth-child(3) {
+    background: linear-gradient(rgb(39, 39, 212), rgb(255, 130, 255));
   }
 
   .first_part {
-    transform: rotate(-50deg) translate(-15%, 80%);
+    transform: rotate(-50deg) translate(-16%, 80%);
     transform-origin: center;
   }
   .second_part {
@@ -103,5 +113,10 @@
   .third_part {
     transform: rotate(45deg);
     transform-origin: center;
+  }
+  #container img {
+    max-width: 100%;
+    max-height: 13vw;
+    background: rgb(255, 255, 255);
   }
 }

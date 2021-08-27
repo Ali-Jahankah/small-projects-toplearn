@@ -7,7 +7,7 @@
   }
 }
 
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 620px) {
   .menu_div {
     display: initial;
     position: fixed;
@@ -17,6 +17,9 @@
     left: 0;
     background: #3e1724;
     z-index: 5;
+  }
+  .hide_menu {
+    display: none;
   }
 
   .menu_div ul {
@@ -42,16 +45,11 @@
     font-weight: 800;
   }
 
-  #container img {
-    max-width: 100%;
-    max-height: 5vw;
-    background: rgb(255, 255, 255);
-  }
+ 
   .links {
     color: rgb(234, 123, 238);
   }
   .links:hover {
     color: rgb(241, 2, 42);
   }
-  
 }
