@@ -7,7 +7,6 @@ import uuid from "react-uuid";
 import EditForm from "./EditForm";
 import { EditContext } from "./EditContext";
 import { Redirect, Route, useRouteMatch } from "react-router-dom";
-import { userRegister } from "../services/useService";
 import { Helmet } from "react-helmet";
 
 const People = () => {

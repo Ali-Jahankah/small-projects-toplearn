@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet";
 const Todo = () => {
   const context = useContext(TaskContext);
 
-  const [tasks, setTasks] = useState([]);
+  const [tasks] = useState([]);
   const [important] = useState("#ffb300");
   const [notImportant] = useState("#36a53b");
   const [serious] = useState("rgb(241 2 42)");

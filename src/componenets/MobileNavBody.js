@@ -67,6 +67,15 @@ const MobileNavBody = () => {
               Redux-Counter
             </NavLink>
           </li>
+          <li onClick={closeMenuHandler}>
+            <NavLink
+              className={styles.links}
+              activeClassName={styles.activLink}
+              to="/People-Management-Redux"
+            >
+              People Management Redux
+            </NavLink>
+          </li>
         </ul>
       </div>
     </>

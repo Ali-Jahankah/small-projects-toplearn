@@ -5,7 +5,7 @@ import { Lines } from "react-preloaders2";
 import { EditContext } from "./EditContext";
 import styles from "../css/navbody.css";
 import { Helmet } from "react-helmet";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../actions/loginAction";
 const Login = ({ history }) => {
   const context = useContext(EditContext);
