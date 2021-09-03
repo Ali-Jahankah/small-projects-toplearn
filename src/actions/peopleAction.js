@@ -45,11 +45,9 @@ const addPeople = (newPerson) => {
   return async (dispatch, getState) => {
     const people = [...getState().people];
 
-    if (newPerson.name !== "" && newPerson.name !== " ") {
-      people.push(newPerson);
-      await dispatch({ type: "ADD_PEOPLE", payload: people });
-      await dispatch(clearPerson());
-    }
+    people.push(newPerson);
+    await dispatch({ type: "ADD_PEOPLE", payload: people });
+    await dispatch(clearPerson());
   };
 };
 export const deletePeople = (mykey) => {
@@ -57,11 +55,11 @@ export const deletePeople = (mykey) => {
     if (getState.showEdit === true) {
       await dispatch(setShowEdit());
     }
-    let myPeople = [...getState.people];
+    let myPeople = [...getState().people];
     let newPeople = myPeople.filter((person) => {
       return person.id !== mykey;
     });
-    await dispatch({ type: "DELETE_PERSON", payload: newPeople });
+    await dispatch({ type: "REMOVE_PEOPLE", payload: newPeople });
   };
 };
 export const updatePerson = (id) => {
@@ -69,11 +67,28 @@ export const updatePerson = (id) => {
     const people = [...getState().people];
     const personIndex = people.findIndex((p) => p.id === id);
     const newPerson = people[personIndex];
+    const nameInput = getState().name;
+    const lastnameInput = getState().lastname;
+    const ageInput = getState().age;
+    const genderInput = getState().gender;
+    const editArray = [nameInput, lastnameInput, ageInput, genderInput];
+    let mySwitch = true;
+    editArray.map((input) => {
+      if (!input || input === "noneValue") {
+        mySwitch = false;
+      }
+      return true;
+    });
+    if (mySwitch === false) {
+      alert("Please fill the fields");
+      return;
+    }
     newPerson.name = getState().name;
     newPerson.lastname = getState().lastname;
     newPerson.age = getState().age;
     newPerson.gender = getState().gender;
     newPerson.id = getState().id;
+    newPerson.myclass = "#005256";
     console.log(newPerson);
     const newPeople = [...people];
     newPeople[personIndex] = newPerson;

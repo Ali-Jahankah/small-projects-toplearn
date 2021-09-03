@@ -2,6 +2,7 @@
   width: 1em;
   height: 1em;
   color: white;
+  cursor: pointer;
 }
 
 .svg_icon path,

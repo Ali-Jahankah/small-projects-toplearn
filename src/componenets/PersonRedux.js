@@ -2,7 +2,7 @@ import Edit from "./svgEditRedux";
 import Delete from "./svgDeleteRedux";
 const Person = ({ number, person }) => {
   return (
-    <tr>
+    <tr style={{ background: person.myclass }}>
       <td>{number}</td>
       <td>{person.name} </td>
       <td>{person.lastname}</td>
