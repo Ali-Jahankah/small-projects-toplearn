@@ -76,7 +76,16 @@ const NavBody = () => {
                 activeClassName={styles.activLink}
                 to="/People-Management-Redux"
               >
-                People Management Redux
+                People-Redux
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={styles.links}
+                activeClassName={styles.activLink}
+                to="/React-jquery"
+              >
+                React-jquery
               </NavLink>
             </li>
           </ul>

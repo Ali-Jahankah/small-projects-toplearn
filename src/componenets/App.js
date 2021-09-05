@@ -13,7 +13,7 @@ import Regester from "./Regester";
 import CounterRedux from "./CounterRedux";
 import Login from "./Login";
 import PeopleRedux from "./PeopleRedux";
-
+import ReactJquery from "./ReactJquery";
 import MobileNavBody from "./MobileNavBody";
 
 function App() {
@@ -34,6 +34,8 @@ function App() {
             path="/People-Management-Redux"
             component={PeopleRedux}
           ></Route>
+          <Route path="/react-jquery" component={ReactJquery}></Route>
+
           <TaskContextProvider>
             <Route path="/Todo" component={ToDo}></Route>
           </TaskContextProvider>
