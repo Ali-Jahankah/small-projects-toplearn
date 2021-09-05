@@ -94,6 +94,7 @@ const Regester = ({ history }) => {
         {" "}
         <title>Register | Small projects</title>
       </Helmet>
+      {/* preloader has a bug, it removes scroll bar! */}
       <div id={styles.regesterDiv}>
         {loading ? (
           <Sugar time={0} color="#fc03d7" customLoading={loading} />
