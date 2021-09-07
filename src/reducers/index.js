@@ -11,6 +11,7 @@ import {
   personNameReducer,
   newPerson,
 } from "./person";
+import { dropdown1, dropdown2, dropdown3 } from "./dropdown";
 import { setName, setLastame, setAge, setGender } from "./editPerson.js";
 import { showEdit } from "./showPerson";
 
@@ -30,5 +31,8 @@ const reducer = combineReducers({
   lastname: setLastame,
   age: setAge,
   gender: setGender,
+  dropdown1,
+  dropdown2,
+  dropdown3,
 });
 export default reducer;
