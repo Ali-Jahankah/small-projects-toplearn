@@ -47,6 +47,7 @@
 .menu_div {
   width: 60%;
   display: flex;
+  align-items: center;
 }
 .menu_div ul {
   list-style: none;

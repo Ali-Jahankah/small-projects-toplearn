@@ -90,7 +90,7 @@ const NavBody = () => {
             onClick={dropdown2Handler}
             className={styles.nav_items}
           >
-            First Part
+            Second Part
             {dropdown2 ? (
               <div className={styles.dropdown2}>
                 <ul>

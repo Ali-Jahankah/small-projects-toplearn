@@ -7,3 +7,6 @@ export const userRegister = (user) => {
 export const userLogin = (user) => {
   return http.post(`${config.localapi}/api/login`, JSON.stringify(user));
 };
+export const courses = () => {
+  return http.get(`${config.toplearnapi}/api/courses`);
+};

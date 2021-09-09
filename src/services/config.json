@@ -1,4 +1,4 @@
 {
-  "toplearnapi": "https://jsonplaceholder.ir/posts",
+  "toplearnapi": "https://toplearnapi.ghorbany.dev",
   "localapi": "http://192.168.1.14:4000"
 }
