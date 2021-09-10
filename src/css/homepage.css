@@ -45,7 +45,59 @@ hr {
   background-size: contain;
   height: 25vw;
 }
+.courses_container {
+  max-width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+#course_container {
+  width: 22%;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+.course_div {
+  width: 100%;
 
+  position: relative;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.course_info_div {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgb(39, 9, 32);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 2.2vw;
+  font-weight: bold;
+  transform: translate(100%);
+  transition: all 1.2s;
+}
+.course_info_div:hover,
+.course_div:hover .course_info_div {
+  transform: translate(0);
+}
+.course_image {
+  max-width: 100%;
+  width: 100%;
+  max-height: 280px;
+}
+.course_div button {
+  width: 100%;
+  z-index: 1;
+}
 @media screen and (max-width: 481px) {
   #container {
     font-size: 10vw;
