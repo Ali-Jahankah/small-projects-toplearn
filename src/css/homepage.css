@@ -49,6 +49,7 @@ hr {
   text-align: center;
   font-size: 3vw;
   background: yellow;
+  position: relative;
 }
 .courses_container {
   max-width: 90%;
@@ -56,7 +57,7 @@ hr {
   justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 0 auto;
-
+  padding: 1vw;
   border: 5px solid yellow;
   border-top: 0;
 }
@@ -115,12 +116,40 @@ hr {
 .course_image {
   max-width: 100%;
 
-  max-height: 25vw;
+  max-height: 23vw;
 }
 .course_div button {
   width: 100%;
   z-index: 1;
 }
+.allgames_div {
+  position: absolute;
+  top: 1%;
+  right: 18%;
+  text-align: center;
+  font-size: 2vw;
+  font-weight: bold;
+  animation: gamesLink 2s infinite;
+  cursor: pointer;
+}
+@keyframes gamesLink {
+  0% {
+    color: black;
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(4%);
+  }
+  50% {
+    color: rgb(0, 132, 255);
+    transform: translate(-4%);
+  }
+  100% {
+    color: black;
+    transform: translate(0);
+  }
+}
+
 @media screen and (max-width: 481px) {
   #container {
     font-size: 10vw;
