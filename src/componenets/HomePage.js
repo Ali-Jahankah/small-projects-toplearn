@@ -28,6 +28,8 @@ const HomePage = () => {
           </NavLink>
         </div>
       </div>
+      <br></br>
+      <h1 className={styles.games_title}>Games</h1>
       <div className={styles.courses_container}>
         {courses.map((course) => {
           return (
@@ -45,7 +47,7 @@ const HomePage = () => {
                   <h3>Price:${course.price}</h3>
                 </div>
               </div>
-              <button type="button"> Go To</button>
+              <button type="button" className={styles.course_button}> Go To</button>
             </div>
           );
         })}

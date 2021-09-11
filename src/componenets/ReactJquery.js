@@ -18,7 +18,9 @@ const ReactJquery = () => {
       <div className={styles.image_div} ref={image}>
         <img src="/images/1$.jpg" alt="pentagram"></img>
       </div>
-      <button onClick={showing}>Toggle 666</button>
+      <button onClick={showing} className={styles.button}>
+        Toggle 666
+      </button>
     </>
   );
 };
