@@ -7,6 +7,32 @@
   padding: 1vw;
   border: 5px solid yellow;
   border-top: 0;
+  border-bottom: 0;
+  animation: border 6s infinite;
+}
+.games_title {
+  text-align: center;
+  font-size: 3vw;
+  background: yellow;
+  border: 2px solid yellow;
+  animation: border 6s infinite;
+}
+@keyframes border {
+  20% {
+    border-color: red;
+  }
+  40% {
+    border-color: rgb(195, 0, 255);
+  }
+  60% {
+    border-color: rgb(0, 255, 234);
+  }
+  80% {
+    border-color: rgb(8, 8, 8);
+  }
+  100% {
+    border-color: yellow;
+  }
 }
 .course_button {
   padding: 10px;
