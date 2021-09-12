@@ -86,7 +86,8 @@
   color: rgb(241, 2, 42);
 }
 .dropdown1,
-.dropdown2 {
+.dropdown2,
+.dropdown3 {
   position: absolute;
   background: rgb(46 0 51);
   transition: all 2s;
@@ -96,17 +97,16 @@
   padding: 5px;
 }
 .dropdown1 li a,
-.dropdown2 li a {
+.dropdown2 li a,
+.dropdown3 li a {
   font-size: 2vw !important;
 }
 .dropdown1 li,
-.dropdown2 li {
+.dropdown2 li,
+.dropdown3 li {
   margin: 5px 0;
 }
-.dropdown1_hide,
-.dropdown2_hide {
-  display: none;
-}
+
 .burger_show {
   display: inherit;
 }

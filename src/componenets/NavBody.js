@@ -5,7 +5,7 @@ import { NavLink, withRouter } from "react-router-dom";
 import {
   dropdown1Action,
   dropdown2Action,
-  // dropdown3Action,
+  dropdown3Action,
 } from "../actions/dropdownAction";
 import { Visible } from "../actions/MobileNavAction";
 import styles from "../css/navbody.css";
@@ -15,6 +15,7 @@ const NavBody = () => {
   const menu = useSelector((state) => state.menu);
   const dropdown1 = useSelector((state) => state.dropdown1);
   const dropdown2 = useSelector((state) => state.dropdown2);
+  const dropdown3 = useSelector((state) => state.dropdown3);
 
   // const dropdown3 = useSelector((state) => state.dropdown3);
 
@@ -27,9 +28,9 @@ const NavBody = () => {
   const dropdown2Handler = () => {
     dispatch(dropdown2Action());
   };
-  // const dropdown3Handler = () => {
-  //   dispatch(dropdown3Action());
-  // };
+  const dropdown3Handler = () => {
+    dispatch(dropdown3Action());
+  };
   return (
     <>
       <div id={styles.container}>
@@ -128,6 +129,29 @@ const NavBody = () => {
                       to="/React-jquery"
                     >
                       React-jquery
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
+            ) : null}
+          </div>
+          <div
+            onMouseEnter={dropdown3Handler}
+            onMouseLeave={dropdown3Handler}
+            onClick={dropdown3Handler}
+            className={styles.nav_items}
+          >
+            Third Part
+            {dropdown3 ? (
+              <div className={styles.dropdown3}>
+                <ul>
+                  <li>
+                    <NavLink
+                      className={styles.links}
+                      activeClassName={styles.activLink}
+                      to="/Games"
+                    >
+                      Games
                     </NavLink>
                   </li>
                 </ul>
