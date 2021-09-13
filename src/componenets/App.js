@@ -16,6 +16,7 @@ import PeopleRedux from "./PeopleRedux";
 import ReactJquery from "./ReactJquery";
 import MobileNavBody from "./MobileNavBody";
 import Games from "./Games";
+import Game from "./game";
 
 function App() {
   return (
@@ -31,7 +32,9 @@ function App() {
           <Route path="/Regester" component={Regester}></Route>
           <Route path="/Login" component={Login}></Route>
           <Route path="/Counter-Redux" component={CounterRedux}></Route>
-          <Route path="/Games" component={Games}></Route>
+          <Route path="/Games" component={Games} exact></Route>
+          <Route path="/Games/:id" component={Game} exact></Route>
+
           <Route
             path="/People-Management-Redux"
             component={PeopleRedux}

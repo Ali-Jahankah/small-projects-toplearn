@@ -10,3 +10,6 @@ export const userLogin = (user) => {
 export const courses = () => {
   return http.get(`${config.localapi}/api/courses`);
 };
+export const course = (courseId) => {
+  return http.get(`${config.localapi}/api/course/${courseId}`);
+};
