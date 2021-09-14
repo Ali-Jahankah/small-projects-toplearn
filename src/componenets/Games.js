@@ -7,14 +7,14 @@ import Pagination from "./Pagination";
 
 const Games = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [gamesPerPage, setGamesPerPage] = useState(8);
+  const [gamesPerPage] = useState(8);
   const courses = useSelector((state) => state.courses);
 
   const games = paginate(courses, currentPage, gamesPerPage);
   const onPageChange = (page) => {
     setCurrentPage(page);
   };
- 
+
   return (
     <>
       <h1 className={styles.games_title}>Games</h1>

@@ -3,10 +3,10 @@ import styles from "../css/regester.css";
 import { useContext, useRef, useState } from "react";
 import { EditContext } from "./EditContext";
 import { userRegister } from "../services/useService";
-import { Sugar } from "react-preloaders2";
 import validation from "simple-react-validator";
 import { withRouter } from "react-router";
 import { Helmet } from "react-helmet";
+import Preloader from "./Preloader";
 const Regester = ({ history }) => {
   const context = useContext(EditContext);
   const [, forceUpdate] = useState();
@@ -96,9 +96,7 @@ const Regester = ({ history }) => {
       </Helmet>
       {/* preloader has a bug, it removes scroll bar! */}
       <div id={styles.regesterDiv}>
-        {loading ? (
-          <Sugar time={0} color="#fc03d7" customLoading={loading} />
-        ) : null}
+        {loading ? <Preloader></Preloader> : null}
         <form id={styles.regesterForm} onSubmit={formSubmit}>
           <h1 id={styles.regesterTitle}>Let's Regester</h1>
           <ul>

@@ -1,12 +1,12 @@
 import React from "react";
 import { useContext, useState } from "react";
 import { userLogin } from "../services/useService";
-import { Lines } from "react-preloaders2";
 import { EditContext } from "./EditContext";
 import styles from "../css/navbody.css";
 import { Helmet } from "react-helmet";
 import { useDispatch } from "react-redux";
 import { login } from "../actions/loginAction";
+import Preloader from "./Preloader";
 const Login = ({ history }) => {
   const context = useContext(EditContext);
   const [loading, setLoading] = useState(false);
@@ -41,7 +41,7 @@ const Login = ({ history }) => {
   };
   return (
     <>
-      {loading ? <Lines time={0} customLoading={loading} /> : null}
+      {loading ? <Preloader></Preloader> : null}
 
       <div className={styles.login_form_div}>
         <h1>Login Form</h1>
