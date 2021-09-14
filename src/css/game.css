@@ -1,0 +1,22 @@
+.game_container {
+  width: 80%;
+  margin: 10% auto;
+  display: flex;
+  background: rgba(255, 255, 255, 0.575);
+  font-size: 2vw;
+  padding: 10px;
+}
+.image_div {
+  width: 50%;
+  text-align: center;
+}
+.image_div img {
+  max-width: 60%;
+}
+.info_div {
+  display: flex;
+  flex-direction: column;
+}
+.info_div h1 {
+  border-bottom: 2px solid red;
+}

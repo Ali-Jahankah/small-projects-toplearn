@@ -76,7 +76,7 @@ const MobileNavBody = () => {
               People-Redux
             </NavLink>
           </li>
-          <li>
+          <li onClick={closeMenuHandler}>
             <NavLink
               className={styles.links}
               activeClassName={styles.activLink}
