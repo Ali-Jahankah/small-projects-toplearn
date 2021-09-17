@@ -17,7 +17,7 @@ const Game = ({ match }) => {
           <h1 className={styles.game_info}>Name: {game.name}</h1>
           <h1 className={styles.game_info}>Year: {game.year}</h1>
           <h1 className={styles.game_info}>Type: {game.type}</h1>
-          <h1 className={styles.game_info}>Price: {game.price}</h1>
+          <h1 className={styles.game_info}>Price: ${game.price}</h1>
         </div>
         <div className={styles.image_div}>
           <img src={game.src} alt={game.name}></img>

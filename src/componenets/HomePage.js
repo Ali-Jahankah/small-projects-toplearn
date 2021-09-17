@@ -1,16 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { paginate } from "./paginate";
 import { Link, NavLink } from "react-router-dom";
 import styles from "../css/homepage.css";
+import { setUser } from "../actions/userAction";
+import { decodeToken } from "../services/decodeToken";
 
 const HomePage = ({ history }) => {
+  const dispatch = useDispatch();
   const courses = useSelector((state) => state.courses);
+
   const games = paginate(courses, 1, 8);
   const gamesHandler = () => {
     history.push("/Games");
   };
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decodedToken = decodeToken(token);
+      const dateNow = Date.now() / 1000;
+      if (decodedToken.payload.exp < dateNow) {
+        localStorage.removeItem("token");
+      } else {
+        dispatch(setUser(decodedToken.payload.user));
+      }
+    }
+  }, []);
 
   return (
     <>

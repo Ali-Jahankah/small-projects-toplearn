@@ -7,6 +7,9 @@ import { Helmet } from "react-helmet";
 import { useDispatch } from "react-redux";
 import { login } from "../actions/loginAction";
 import Preloader from "./Preloader";
+import { decodeToken } from "../services/decodeToken";
+import { setUser } from "../actions/userAction";
+// import { Redirect } from "react-router";
 const Login = ({ history }) => {
   const context = useContext(EditContext);
   const [loading, setLoading] = useState(false);
@@ -25,12 +28,14 @@ const Login = ({ history }) => {
       setLoading(true);
       const { status, data } = await userLogin(user);
       if (status === 200) {
-        console.log(data);
         localStorage.setItem("token", data.token);
+        dispatch(setUser(decodeToken(data.token).payload.user));
+
         setLoading(false);
+
         dispatch(login());
         reset();
-        history.replace("/");
+        history.replace("/Home");
       }
     } catch (ex) {
       setLoading(false);

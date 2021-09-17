@@ -3,6 +3,7 @@ import { LoginReducer } from "./LoginReducer";
 import { CounterReducer } from "./CounterReducer";
 import { MobileNavBody } from "./mobileNavBody";
 import { peopleReducer } from "./people";
+import { user } from "./userReducers";
 import {
   getPersonId,
   personAgeReducer,
@@ -37,5 +38,6 @@ const reducer = combineReducers({
   dropdown3,
   courses,
   course,
+  user,
 });
 export default reducer;
