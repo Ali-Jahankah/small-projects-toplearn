@@ -9,6 +9,7 @@ const MobileNavBody = () => {
   const closeMenuHandler = () => {
     dispatch(Visible());
   };
+  const token = localStorage.getItem("token");
   return (
     <>
       <div className={menu ? styles.menu_div : styles.hide_menu}>
@@ -50,13 +51,23 @@ const MobileNavBody = () => {
             </NavLink>
           </li>
           <li onClick={closeMenuHandler}>
-            <NavLink
-              className={styles.links}
-              activeClassName={styles.activLink}
-              to="/Login"
-            >
-              Login
-            </NavLink>
+            {token ? (
+              <NavLink
+                className={styles.links}
+                activeClassName={styles.activLink}
+                to="/Logout"
+              >
+                Logout
+              </NavLink>
+            ) : (
+              <NavLink
+                className={styles.links}
+                activeClassName={styles.activLink}
+                to="/Login"
+              >
+                Login
+              </NavLink>
+            )}
           </li>
           <li onClick={closeMenuHandler}>
             <NavLink

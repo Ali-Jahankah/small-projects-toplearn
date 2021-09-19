@@ -18,6 +18,7 @@ import ReactJquery from "./ReactJquery";
 import MobileNavBody from "./MobileNavBody";
 import Games from "./Games";
 import Game from "./game";
+import Logout from "./Logout";
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
           <Route path="/People" component={People}></Route>
           <Route path="/Regester" component={Regester}></Route>
           <Route path="/Login" component={Login}></Route>
+          <Route path="/Logout" component={Logout}></Route>
+
           <Route path="/Counter-Redux" component={CounterRedux}></Route>
           <Route path="/Games" component={Games} exact></Route>
           <Route path="/Games/:id" component={Game} exact></Route>

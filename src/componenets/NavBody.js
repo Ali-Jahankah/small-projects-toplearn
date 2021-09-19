@@ -11,11 +11,11 @@ import { Visible } from "../actions/MobileNavAction";
 import styles from "../css/navbody.css";
 const NavBody = () => {
   const dispatch = useDispatch();
-  const login = useSelector((state) => state.login);
   const menu = useSelector((state) => state.menu);
   const dropdown1 = useSelector((state) => state.dropdown1);
   const dropdown2 = useSelector((state) => state.dropdown2);
   const dropdown3 = useSelector((state) => state.dropdown3);
+  const token = localStorage.getItem("token");
 
   // const dropdown3 = useSelector((state) => state.dropdown3);
 
@@ -96,13 +96,23 @@ const NavBody = () => {
               <div className={styles.dropdown2}>
                 <ul>
                   <li>
-                    <NavLink
-                      className={styles.links}
-                      activeClassName={styles.activLink}
-                      to="/Login"
-                    >
-                      Login
-                    </NavLink>
+                    {token ? (
+                      <NavLink
+                        className={styles.links}
+                        activeClassName={styles.activLink}
+                        to="/Logout"
+                      >
+                        Logout
+                      </NavLink>
+                    ) : (
+                      <NavLink
+                        className={styles.links}
+                        activeClassName={styles.activLink}
+                        to="/Login"
+                      >
+                        Login
+                      </NavLink>
+                    )}
                   </li>
                   <li>
                     <NavLink
@@ -178,7 +188,7 @@ const NavBody = () => {
         </div>
         <span style={{ fontSize: "2vw", fontWeight: "bold" }}>
           {" "}
-          {login ? "You are signed in!" : null}
+          {token ? "You are signed in!" : ""}
         </span>
 
         <div className={styles.menuLogo}>
