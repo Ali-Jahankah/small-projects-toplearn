@@ -1,1 +1,1 @@
-I'm using Local Rest API. I've uploaded Toplearnapi, which is API File. You need to use NPM Start on CMD to run Toplearnapi then in useServices Folder change ipConfig File and put your local IP instead of that.
+I'm using Local Rest API. You need to use a local rest api file for requests and change the ip address to your ip addres in Config.json file.
