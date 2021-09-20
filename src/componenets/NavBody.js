@@ -73,13 +73,15 @@ const NavBody = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink
-                      className={styles.links}
-                      activeClassName={styles.activLink}
-                      to="/Regester"
-                    >
-                      Register
-                    </NavLink>
+                    {token ? null : (
+                      <NavLink
+                        className={styles.links}
+                        activeClassName={styles.activLink}
+                        to="/Regester"
+                      >
+                        Register
+                      </NavLink>
+                    )}
                   </li>
                 </ul>
               </div>

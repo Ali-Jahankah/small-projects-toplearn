@@ -9,6 +9,7 @@ import { login } from "../actions/loginAction";
 import Preloader from "./Preloader";
 import { decodeToken } from "../services/decodeToken";
 import { setUser } from "../actions/userAction";
+import { withRouter } from "react-router-dom";
 // import { Redirect } from "react-router";
 const Login = ({ history }) => {
   const context = useContext(EditContext);
@@ -82,4 +83,4 @@ const Login = ({ history }) => {
   );
 };
 
-export default Login;
+export default withRouter(Login);

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { paginate } from "./paginate";
 import { Link, NavLink } from "react-router-dom";
 import styles from "../css/homepage.css";
-import { setUser } from "../actions/userAction";
+import { clearUser, setUser } from "../actions/userAction";
 import { decodeToken } from "../services/decodeToken";
 
 const HomePage = ({ history }) => {
@@ -22,6 +22,7 @@ const HomePage = ({ history }) => {
       const dateNow = Date.now() / 1000;
       if (decodedToken.payload.exp < dateNow) {
         localStorage.removeItem("token");
+        dispatch(clearUser());
       } else {
         dispatch(setUser(decodedToken.payload.user));
       }

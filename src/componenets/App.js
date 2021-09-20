@@ -1,5 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+  withRouter,
+} from "react-router-dom";
 import NavBody from "./NavBody";
 import Menusvg from "./Menusvg";
 import { memo } from "react";
@@ -21,39 +27,44 @@ import Game from "./game";
 import Logout from "./Logout";
 
 function App() {
+  const token = localStorage.getItem("token");
   return (
     <EditContextProvider>
       <Menusvg></Menusvg>
-      <Router>
-        <NavBody></NavBody>
-        <MobileNavBody></MobileNavBody>
-        <Switch>
-          <Route path="/" component={HomePage} exact></Route>
-          <Route path="/Home" component={HomePage}></Route>
-          <Route path="/People" component={People}></Route>
-          <Route path="/Regester" component={Regester}></Route>
-          <Route path="/Login" component={Login}></Route>
-          <Route path="/Logout" component={Logout}></Route>
 
-          <Route path="/Counter-Redux" component={CounterRedux}></Route>
-          <Route path="/Games" component={Games} exact></Route>
-          <Route path="/Games/:id" component={Game} exact></Route>
+      <NavBody></NavBody>
+      <MobileNavBody></MobileNavBody>
 
-          <Route
-            path="/People-Management-Redux"
-            component={PeopleRedux}
-          ></Route>
-          <Route path="/react-jquery" component={ReactJquery}></Route>
+      <Route path="/" component={HomePage} exact></Route>
+      <Route path="/Home" component={HomePage}></Route>
+      <Route path="/People" component={People}></Route>
+      <Route
+        path="/Regester"
+        render={() => (token ? <Redirect to="/" /> : <Regester />)}
+      ></Route>
+      <Route
+        path="/Login"
+        render={() => (token ? <Redirect to="/" /> : <Login />)}
+      ></Route>
+      <Route
+        path="/Logout"
+        render={() => (token ? <Logout /> : <Redirect to="/" />)}
+      ></Route>
 
-          <TaskContextProvider>
-            <Route path="/Todo" component={ToDo}></Route>
-          </TaskContextProvider>
+      <Route path="/Counter-Redux" component={CounterRedux}></Route>
+      <Route path="/Games" component={Games} exact></Route>
+      <Route path="/Games/:id" component={Game} exact></Route>
 
-          {/* <Route component={NotFound}></Route> */}
-        </Switch>
-      </Router>
+      <Route path="/People-Management-Redux" component={PeopleRedux}></Route>
+      <Route path="/react-jquery" component={ReactJquery}></Route>
+
+      <TaskContextProvider>
+        <Route path="/Todo" component={ToDo}></Route>
+      </TaskContextProvider>
+
+      {/* <Route component={NotFound}></Route> */}
     </EditContextProvider>
   );
 }
 
-export default memo(App);
+export default withRouter(App);

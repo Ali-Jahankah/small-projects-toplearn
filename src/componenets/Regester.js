@@ -4,7 +4,7 @@ import { useContext, useRef, useState } from "react";
 import { EditContext } from "./EditContext";
 import { userRegister } from "../services/useService";
 import validation from "simple-react-validator";
-import { withRouter } from "react-router";
+import { withRouter } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Preloader from "./Preloader";
 const Regester = ({ history }) => {
@@ -94,7 +94,6 @@ const Regester = ({ history }) => {
         {" "}
         <title>Register | Small projects</title>
       </Helmet>
-      {/* preloader has a bug, it removes scroll bar! */}
       <div id={styles.regesterDiv}>
         {loading ? <Preloader></Preloader> : null}
         <form id={styles.regesterForm} onSubmit={formSubmit}>
