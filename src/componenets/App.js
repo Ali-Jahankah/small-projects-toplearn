@@ -19,10 +19,9 @@ import MobileNavBody from "./MobileNavBody";
 import Games from "./Games";
 import Game from "./game";
 import Logout from "./Logout";
-import NotFound from "./NotFound";
+import { useSelector } from "react-redux";
 
 function App() {
-  const token = localStorage.getItem("token");
   return (
     <EditContextProvider>
       <Menusvg></Menusvg>
@@ -33,18 +32,9 @@ function App() {
       <Route path="/" component={HomePage} exact></Route>
       <Route path="/Home" component={HomePage}></Route>
       <Route path="/People" component={People}></Route>
-      <Route
-        path="/Regester"
-        render={() => (token ? <Redirect to="/" /> : <Regester />)}
-      ></Route>
-      <Route
-        path="/Login"
-        render={() => (token ? <Redirect to="/" /> : <Login />)}
-      ></Route>
-      <Route
-        path="/Logout"
-        render={() => (token ? <Logout /> : <Redirect to="/" />)}
-      ></Route>
+      <Route path="/Regester" component={Regester}></Route>
+      <Route path="/Login" component={Login} exact></Route>
+      <Route path="/Logout" component={Logout} exact></Route>
 
       <Route path="/Counter-Redux" component={CounterRedux}></Route>
       <Route path="/Games" component={Games} exact></Route>

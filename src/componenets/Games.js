@@ -17,6 +17,7 @@ const Games = () => {
   };
   useEffect(() => {
     dispatch(errorAction());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

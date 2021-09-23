@@ -10,6 +10,7 @@ const Game = ({ match, history }) => {
   const game = useSelector((state) => state.course);
   useEffect(() => {
     dispatch(getCourse(match.params.id));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (errors) {

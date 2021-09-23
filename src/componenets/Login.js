@@ -9,12 +9,12 @@ import { login } from "../actions/loginAction";
 import Preloader from "./Preloader";
 import { decodeToken } from "../services/decodeToken";
 import { setUser } from "../actions/userAction";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 // import { Redirect } from "react-router";
 const Login = ({ history }) => {
   const context = useContext(EditContext);
   const [loading, setLoading] = useState(false);
-
+  const token = localStorage.getItem("token");
   const dispatch = useDispatch();
   const reset = () => {
     context.setLoginEmail("");
@@ -45,6 +45,7 @@ const Login = ({ history }) => {
       reset();
     }
   };
+  if (token) return <Redirect to="/Home" />;
   return (
     <>
       {loading ? <Preloader></Preloader> : null}

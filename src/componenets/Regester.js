@@ -4,13 +4,15 @@ import { useContext, useRef, useState } from "react";
 import { EditContext } from "./EditContext";
 import { userRegister } from "../services/useService";
 import validation from "simple-react-validator";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Preloader from "./Preloader";
 const Regester = ({ history }) => {
   const context = useContext(EditContext);
   const [, forceUpdate] = useState();
   const [loading, setLoading] = useState(false);
+  const token = localStorage.getItem("token");
+
   const validator = useRef(
     new validation({
       messages: {
@@ -73,21 +75,7 @@ const Regester = ({ history }) => {
     validator.current.showMessageFor("password");
   };
 
-  // const handleInputs = (e, typee) => {
-  //   if (typee === "name") {
-  //     setName(e.target.value);
-  //     console.log("name =" + name);
-  //   }
-  //   if (typee === "lastname") {
-  //     setLastname(e.target.value);
-  //   }
-  //   if (typee === "email") {
-  //     setEmail(e.target.value);
-  //   }
-
-  //   console.log("lastname = " + lastname);
-  //   console.log("email =  " + email);
-  // };
+  if (token) return <Redirect to="/Home" />;
   return (
     <>
       <Helmet>

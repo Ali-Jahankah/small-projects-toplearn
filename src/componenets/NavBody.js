@@ -12,6 +12,7 @@ import styles from "../css/navbody.css";
 const NavBody = () => {
   const dispatch = useDispatch();
   const menu = useSelector((state) => state.menu);
+  const user = useSelector((state) => state.user);
   const dropdown1 = useSelector((state) => state.dropdown1);
   const dropdown2 = useSelector((state) => state.dropdown2);
   const dropdown3 = useSelector((state) => state.dropdown3);
@@ -190,7 +191,7 @@ const NavBody = () => {
         </div>
         <span style={{ fontSize: "2vw", fontWeight: "bold" }}>
           {" "}
-          {token ? "You are signed in!" : ""}
+          {user.fullname ? "You are signed in!" : ""}
         </span>
 
         <div className={styles.menuLogo}>

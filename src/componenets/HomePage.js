@@ -17,17 +17,20 @@ const HomePage = ({ history }) => {
   };
   useEffect(() => {
     const token = localStorage.getItem("token");
+    console.log(token);
     if (token) {
       const decodedToken = decodeToken(token);
       const dateNow = Date.now() / 1000;
       if (decodedToken.payload.exp < dateNow) {
         localStorage.removeItem("token");
         dispatch(clearUser());
+        alert("asd");
       } else {
         dispatch(setUser(decodedToken.payload.user));
+        console.log(token);
       }
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
