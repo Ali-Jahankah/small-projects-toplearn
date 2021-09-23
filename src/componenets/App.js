@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-  withRouter,
-} from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import NavBody from "./NavBody";
 import Menusvg from "./Menusvg";
 import { memo } from "react";
@@ -25,6 +19,7 @@ import MobileNavBody from "./MobileNavBody";
 import Games from "./Games";
 import Game from "./game";
 import Logout from "./Logout";
+import NotFound from "./NotFound";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -67,4 +62,4 @@ function App() {
   );
 }
 
-export default withRouter(App);
+export default App;

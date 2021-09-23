@@ -3,7 +3,6 @@ import { range } from "lodash";
 const Pagination = ({ courses, currentPage, perPage, pageChange }) => {
   const totalPages = Math.ceil(courses.length / perPage);
   const pages = range(1, totalPages + 1);
-  console.log(pages);
   if (totalPages === 1) return null;
   return (
     <div className={styles.paginate_container}>

@@ -1,5 +1,4 @@
 import { course, courses } from "../services/useService";
-
 export const getCourses = () => {
   return async (dispatch) => {
     const { data } = await courses();
@@ -8,7 +7,16 @@ export const getCourses = () => {
 };
 export const getCourse = (courseId) => {
   return async (dispatch) => {
-    const { data } = await course(courseId);
-    await dispatch({ type: "GET", payload: data.course });
+    try {
+      const { data } = await course(courseId);
+      await dispatch({ type: "GET", payload: data.course });
+    } catch (e) {
+      if (e.response.status === 500) await dispatch({ type: "ERROR" });
+    }
   };
 };
+export const errorAction = () => {
+  return async (dispatch) => {
+    await dispatch({ type: "FALSE" });
+  }
+}

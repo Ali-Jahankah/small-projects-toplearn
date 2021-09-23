@@ -2,14 +2,20 @@ import styles from "../css/game.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCourse } from "../actions/courseActions";
+import { withRouter } from "react-router-dom";
 
-const Game = ({ match }) => {
-  const game = useSelector((state) => state.course);
+const Game = ({ match, history }) => {
   const dispatch = useDispatch();
+  const errors = useSelector((state) => state.errors);
+  const game = useSelector((state) => state.course);
   useEffect(() => {
     dispatch(getCourse(match.params.id));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  if (errors) {
+    history.push("/Games");
+    return null;
+  }
   return (
     <>
       <div className={styles.game_container}>
@@ -27,4 +33,4 @@ const Game = ({ match }) => {
   );
 };
 
-export default Game;
+export default withRouter(Game);

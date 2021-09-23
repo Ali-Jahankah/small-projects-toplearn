@@ -14,3 +14,13 @@ export const course = (state = {}, action) => {
       return state;
   }
 };
+export const errorHandler = (state = false, action) => {
+  switch (action.type) {
+    case "ERROR":
+      return !state;
+    case "FALSE":
+      return (state = false);
+    default:
+      return state;
+  }
+};

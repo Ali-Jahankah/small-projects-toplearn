@@ -1,19 +1,23 @@
 import styles from "../css/games.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { paginate } from "./paginate";
 import Pagination from "./Pagination";
+import { errorAction } from "../actions/courseActions";
 
 const Games = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [gamesPerPage] = useState(8);
   const courses = useSelector((state) => state.courses);
-
+  const dispatch = useDispatch();
   const games = paginate(courses, currentPage, gamesPerPage);
   const onPageChange = (page) => {
     setCurrentPage(page);
   };
+  useEffect(() => {
+    dispatch(errorAction());
+  }, []);
 
   return (
     <>

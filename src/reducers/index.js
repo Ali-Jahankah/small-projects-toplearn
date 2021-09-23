@@ -15,7 +15,7 @@ import {
 import { dropdown1, dropdown2, dropdown3 } from "./dropdown";
 import { setName, setLastame, setAge, setGender } from "./editPerson.js";
 import { showEdit } from "./showPerson";
-import { courses, course } from "./courseReducers";
+import { courses, course, errorHandler } from "./courseReducers";
 
 const reducer = combineReducers({
   counter: CounterReducer,
@@ -39,5 +39,6 @@ const reducer = combineReducers({
   courses,
   course,
   user,
+  errors: errorHandler,
 });
 export default reducer;
