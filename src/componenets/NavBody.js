@@ -10,6 +10,7 @@ import {
 import { Visible } from "../actions/MobileNavAction";
 import styles from "../css/navbody.css";
 import UserProfile from "./UserProfile.js";
+import { isEmpty } from "lodash";
 const NavBody = () => {
   const dispatch = useDispatch();
   const menu = useSelector((state) => state.menu);
@@ -213,6 +214,7 @@ const NavBody = () => {
           <img src="/images/navlogo.png " alt="menu-logo"></img>
         </div>
       </div>
+      
       <Route path="/User/:id" component={UserProfile}></Route>
     </>
   );

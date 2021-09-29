@@ -1,6 +1,12 @@
 import styles from "../css/useprofile.css";
 import { useSelector } from "react-redux";
-const UserProfile = () => {
+import { useEffect } from "react";
+import { isEmpty } from "lodash";
+const UserProfile = ({ history }) => {
+  useEffect(() => {
+    isEmpty(user) && history.push("/Home");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const user = useSelector((state) => state.user);
   return (
     <div id={styles.container}>
