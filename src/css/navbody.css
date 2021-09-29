@@ -5,6 +5,7 @@
   justify-content: space-between;
   background: transparent;
   z-index: 99;
+  align-items:center;
 }
 .hamburger_button {
   display: none;

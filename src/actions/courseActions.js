@@ -18,5 +18,5 @@ export const getCourse = (courseId) => {
 export const errorAction = () => {
   return async (dispatch) => {
     await dispatch({ type: "FALSE" });
-  }
-}
+  };
+};

@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import NavBody from "./NavBody";
 import Menusvg from "./Menusvg";
 import { memo } from "react";
@@ -19,7 +19,6 @@ import MobileNavBody from "./MobileNavBody";
 import Games from "./Games";
 import Game from "./game";
 import Logout from "./Logout";
-import { useSelector } from "react-redux";
 
 function App() {
   return (
@@ -42,6 +41,7 @@ function App() {
 
       <Route path="/People-Management-Redux" component={PeopleRedux}></Route>
       <Route path="/react-jquery" component={ReactJquery}></Route>
+      {/* <Route path="/User/:id"></Route> */}
 
       <TaskContextProvider>
         <Route path="/Todo" component={ToDo}></Route>

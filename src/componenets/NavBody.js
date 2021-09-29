@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { NavLink, withRouter } from "react-router-dom";
+import { NavLink, withRouter, Link, Route } from "react-router-dom";
 import {
   dropdown1Action,
   dropdown2Action,
@@ -9,6 +9,7 @@ import {
 } from "../actions/dropdownAction";
 import { Visible } from "../actions/MobileNavAction";
 import styles from "../css/navbody.css";
+import UserProfile from "./UserProfile.js";
 const NavBody = () => {
   const dispatch = useDispatch();
   const menu = useSelector((state) => state.menu);
@@ -17,7 +18,7 @@ const NavBody = () => {
   const dropdown2 = useSelector((state) => state.dropdown2);
   const dropdown3 = useSelector((state) => state.dropdown3);
   const token = localStorage.getItem("token");
-
+  console.log(user);
   // const dropdown3 = useSelector((state) => state.dropdown3);
 
   const mobileMenuHandler = () => {
@@ -49,7 +50,7 @@ const NavBody = () => {
                   <li>
                     <NavLink
                       className={styles.links}
-                      activeClassName={styles.activLink}
+                      activeclassname={styles.activLink}
                       to="/Home"
                     >
                       Home
@@ -58,7 +59,7 @@ const NavBody = () => {
                   <li>
                     <NavLink
                       className={styles.links}
-                      activeClassName={styles.activLink}
+                      activeclassname={styles.activLink}
                       to="/People"
                     >
                       People
@@ -67,7 +68,7 @@ const NavBody = () => {
                   <li>
                     <NavLink
                       className={styles.links}
-                      activeClassName={styles.activLink}
+                      activeclassname={styles.activLink}
                       to="/ToDo"
                     >
                       ToDo
@@ -77,7 +78,7 @@ const NavBody = () => {
                     {token ? null : (
                       <NavLink
                         className={styles.links}
-                        activeClassName={styles.activLink}
+                        activeclassname={styles.activLink}
                         to="/Regester"
                       >
                         Register
@@ -102,7 +103,7 @@ const NavBody = () => {
                     {token ? (
                       <NavLink
                         className={styles.links}
-                        activeClassName={styles.activLink}
+                        activeclassname={styles.activLink}
                         to="/Logout"
                       >
                         Logout
@@ -110,7 +111,7 @@ const NavBody = () => {
                     ) : (
                       <NavLink
                         className={styles.links}
-                        activeClassName={styles.activLink}
+                        activeclassname={styles.activLink}
                         to="/Login"
                       >
                         Login
@@ -120,7 +121,7 @@ const NavBody = () => {
                   <li>
                     <NavLink
                       className={styles.links}
-                      activeClassName={styles.activLink}
+                      activeclassname={styles.activLink}
                       to="/Counter-Redux"
                     >
                       Redux-Counter
@@ -129,7 +130,7 @@ const NavBody = () => {
                   <li>
                     <NavLink
                       className={styles.links}
-                      activeClassName={styles.activLink}
+                      activeclassname={styles.activLink}
                       to="/People-Management-Redux"
                     >
                       People-Redux
@@ -138,7 +139,7 @@ const NavBody = () => {
                   <li>
                     <NavLink
                       className={styles.links}
-                      activeClassName={styles.activLink}
+                      activeclassname={styles.activLink}
                       to="/React-jquery"
                     >
                       React-jquery
@@ -161,7 +162,7 @@ const NavBody = () => {
                   <li>
                     <NavLink
                       className={styles.links}
-                      activeClassName={styles.activLink}
+                      activeclassname={styles.activLink}
                       to="/Games"
                     >
                       Games
@@ -189,15 +190,30 @@ const NavBody = () => {
             }`}
           ></div>
         </div>
-        <span style={{ fontSize: "2vw", fontWeight: "bold" }}>
-          {" "}
-          {user.fullname ? "You are signed in!" : ""}
-        </span>
+        <div style={{ fontSize: "2vw", fontWeight: "bold" }}>
+          <Link
+            to={`/User/${user.userId}`}
+            className={styles.links}
+            activeclassname={styles.activLink}
+          >
+            {user.fullname}
+          </Link>
+          {user.fullname && (
+            <Link
+              to="/Logout"
+              className={styles.links}
+              activeclassname={styles.activLink}
+            >
+              / Logout
+            </Link>
+          )}
+        </div>
 
         <div className={styles.menuLogo}>
           <img src="/images/navlogo.png " alt="menu-logo"></img>
         </div>
       </div>
+      <Route path="/User/:id" component={UserProfile}></Route>
     </>
   );
 };
