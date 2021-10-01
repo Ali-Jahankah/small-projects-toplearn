@@ -77,6 +77,7 @@ const EditForm = ({ people }) => {
     people[myIndex] = myPerson;
     editContext.setShowEdit(false);
   };
+
   useEffect(() => {
     const person = people.find((p) => p.id === editContext.id);
     const personIndex = people.findIndex((p) => p.id === editContext.id);

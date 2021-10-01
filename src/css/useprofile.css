@@ -1,12 +1,53 @@
 #container {
+  width: 90%;
+  margin: 8% auto;
+  text-align: center;
+}
+.container {
   width: 100%;
+  padding: 1vw;
+  display: flex;
+  justify-content: space-between;
+  background: radial-gradient(#a854e5, transparent);
+  border-radius: 30px;
+}
+.header {
+  font-size: 5vw;
 }
 .user_info {
-  width: 100px;
+  width: 70%;
+
+  font-size: 3vw;
+  font-weight: bold;
+
+  padding: 1vw;
 }
-.flex_info {
-  width: 100%;
+.user_info table tr td {
+  text-align: left;
+  padding: 1vw;
 }
 .user_image {
+  width: 20%;
+}
+.user_image img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+.button {
+  padding: 1vw;
+  font-weight: bold;
+  font-size: 3vw;
+  border-radius: 20px;
+  margin-top: 5px;
+}
+.edit {
+  background: rgb(255, 217, 0);
+}
+.remove {
+  background: rgb(255, 0, 34);
+}
+#buttons {
   width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }

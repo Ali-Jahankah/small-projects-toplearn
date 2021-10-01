@@ -102,22 +102,7 @@ const People = () => {
     myPeople.push(newPerson);
     setPeople(myPeople);
 
-    // .then(({ data, status }) => {
-
-    //   console.log(data);
-    // })
-    // .catch((ex) => {
-    //   console.log(ex);
-    // });
-    // axios
-    //   .post("https://jsonplaceholder.ir/users", newPerson)
-    //   .then((res) => {
-    //     console.log(res);
-    //   })
-    //   .catch((ex) => {
-    //     console.log(ex);
-    //   });
-
+    
     setPersonAge("");
     setPersonName("");
     setPersonLastname("");

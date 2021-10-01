@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { NavLink, withRouter, Link, Route } from "react-router-dom";
+import { NavLink, withRouter, Link } from "react-router-dom";
 import {
   dropdown1Action,
   dropdown2Action,
@@ -9,8 +9,6 @@ import {
 } from "../actions/dropdownAction";
 import { Visible } from "../actions/MobileNavAction";
 import styles from "../css/navbody.css";
-import UserProfile from "./UserProfile.js";
-import { isEmpty } from "lodash";
 const NavBody = () => {
   const dispatch = useDispatch();
   const menu = useSelector((state) => state.menu);
@@ -205,6 +203,7 @@ const NavBody = () => {
               className={styles.links}
               activeclassname={styles.activLink}
             >
+              {" "}
               / Logout
             </Link>
           )}
@@ -214,8 +213,6 @@ const NavBody = () => {
           <img src="/images/navlogo.png " alt="menu-logo"></img>
         </div>
       </div>
-      
-      <Route path="/User/:id" component={UserProfile}></Route>
     </>
   );
 };

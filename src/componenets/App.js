@@ -20,6 +20,7 @@ import Games from "./Games";
 import Game from "./game";
 import Logout from "./Logout";
 import NotFound from "./NotFound";
+import UserProfile from "./UserProfile";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/Counter-Redux" component={CounterRedux}></Route>
         <Route path="/Games" component={Games} exact></Route>
         <Route path="/Games/:id" component={Game} exact></Route>
+        <Route path="/User/:id" component={UserProfile}></Route>
 
         <Route path="/People-Management-Redux" component={PeopleRedux}></Route>
         <Route path="/react-jquery" component={ReactJquery}></Route>

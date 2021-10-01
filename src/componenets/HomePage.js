@@ -10,7 +10,6 @@ import { decodeToken } from "../services/decodeToken";
 const HomePage = ({ history }) => {
   const dispatch = useDispatch();
   const courses = useSelector((state) => state.courses);
-  const user = useSelector((state) => state.user);
   const games = paginate(courses, 1, 8);
   const gamesHandler = () => {
     history.push("/Games");

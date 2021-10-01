@@ -1,7 +1,12 @@
 import { combineReducers } from "redux";
 import { LoginReducer } from "./LoginReducer";
 import { CounterReducer } from "./CounterReducer";
-import { MobileNavBody } from "./mobileNavBody";
+import {
+  MobileNavBody,
+  NavParts1,
+  NavParts2,
+  NavParts3,
+} from "./mobileNavBody";
 import { peopleReducer } from "./people";
 import { user } from "./userReducers";
 import {
@@ -40,5 +45,8 @@ const reducer = combineReducers({
   course,
   user,
   errors: errorHandler,
+  NavParts1,
+  NavParts2,
+  NavParts3,
 });
 export default reducer;
