@@ -21,36 +21,42 @@ import Game from "./game";
 import Logout from "./Logout";
 import NotFound from "./NotFound";
 import UserProfile from "./UserProfile";
+import UserContext from "../context/UserContext";
 
 function App() {
   return (
     <EditContextProvider>
-      <Menusvg></Menusvg>
+      <UserContext>
+        <Menusvg></Menusvg>
 
-      <NavBody></NavBody>
-      <MobileNavBody></MobileNavBody>
-      <Switch>
-        <Route path="/" component={HomePage} exact></Route>
-        <Route path="/Home" component={HomePage}></Route>
-        <Route path="/People" component={People}></Route>
-        <Route path="/Regester" component={Regester}></Route>
-        <Route path="/Login" component={Login} exact></Route>
-        <Route path="/Logout" component={Logout} exact></Route>
-
-        <Route path="/Counter-Redux" component={CounterRedux}></Route>
-        <Route path="/Games" component={Games} exact></Route>
-        <Route path="/Games/:id" component={Game} exact></Route>
-        <Route path="/User/:id" component={UserProfile}></Route>
-
-        <Route path="/People-Management-Redux" component={PeopleRedux}></Route>
-        <Route path="/react-jquery" component={ReactJquery}></Route>
-        <Route component={NotFound}></Route>
-
+        <NavBody></NavBody>
+        <MobileNavBody></MobileNavBody>
         <TaskContextProvider>
-          <Route path="/Todo" component={ToDo}></Route>
+          <Switch>
+            <Route path="/" component={HomePage} exact></Route>
+            <Route path="/Home" component={HomePage}></Route>
+            <Route path="/People" component={People}></Route>
+
+            <Route path="/Regester" component={Regester}></Route>
+            <Route path="/Login" component={Login} exact></Route>
+
+            <Route path="/Logout" component={Logout} exact></Route>
+
+            <Route path="/Counter-Redux" component={CounterRedux}></Route>
+            <Route path="/Games" component={Games} exact></Route>
+            <Route path="/Games/:id" component={Game} exact></Route>
+            <Route path="/User/:id" component={UserProfile}></Route>
+
+            <Route
+              path="/People-Management-Redux"
+              component={PeopleRedux}
+            ></Route>
+            <Route path="/react-jquery" component={ReactJquery}></Route>
+            <Route path="/ToDo" component={ToDo}></Route>
+            <Route component={NotFound}></Route>
+          </Switch>
         </TaskContextProvider>
-      </Switch>
-      {/* <Route component={NotFound}></Route> */}
+      </UserContext>
     </EditContextProvider>
   );
 }

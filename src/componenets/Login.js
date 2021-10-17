@@ -1,50 +1,22 @@
-import React from "react";
-import { useContext, useState } from "react";
-import { userLogin } from "../services/useService";
-import { EditContext } from "./EditContext";
+import React, { useContext } from "react";
 import styles from "../css/navbody.css";
 import { Helmet } from "react-helmet";
-import { useDispatch } from "react-redux";
-import { login } from "../actions/loginAction";
 import Preloader from "./Preloader";
-import { decodeToken } from "../services/decodeToken";
-import { setUser } from "../actions/userAction";
-import { withRouter, Redirect } from "react-router-dom";
-// import { Redirect } from "react-router";
-const Login = ({ history }) => {
-  const context = useContext(EditContext);
-  const [loading, setLoading] = useState(false);
+import { Redirect } from "react-router-dom";
+import { Context } from "../context/Context";
+
+const Login = () => {
+  const {
+    loading,
+    handleLogin,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    loginValidator,
+  } = useContext(Context);
   const token = localStorage.getItem("token");
-  const dispatch = useDispatch();
-  const reset = () => {
-    context.setLoginEmail("");
-    context.setLoginPassword("");
-  };
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    const email = context.loginEmail;
-    const password = context.loginPassword;
-    const user = { email, password };
-    try {
-      setLoading(true);
-      const { status, data } = await userLogin(user);
-      if (status === 200) {
-        localStorage.setItem("token", data.token);
-        dispatch(setUser(decodeToken(data.token).payload.user));
 
-        setLoading(false);
-
-        dispatch(login());
-        reset();
-        history.replace("/Home");
-      }
-    } catch (ex) {
-      setLoading(false);
-      console.log(ex);
-      alert("User not found!");
-      reset();
-    }
-  };
   if (token) return <Redirect to="/Home" />;
   return (
     <>
@@ -56,25 +28,37 @@ const Login = ({ history }) => {
           {" "}
           <title>Login | Small projects</title>
         </Helmet>
-        <form onSubmit={handleLogin} className={styles.login_form}>
+        <form onSubmit={(e) => handleLogin(e)} className={styles.login_form}>
           <input
             type="text"
             placeholder="Email Address"
             className={styles.login_input}
-            value={context.loginEmail}
+            value={email}
             onChange={(e) => {
-              context.setLoginEmail(e.target.value);
+              setEmail(e.target.value);
             }}
           ></input>
+          <span style={{ color: "#00f3ff" }}>
+            {" "}
+            {loginValidator.current.message("email", email, "email|required")}
+          </span>
           <input
             type="password"
             placeholder="Password"
             className={styles.login_input}
-            value={context.loginPassword}
+            value={password}
             onChange={(e) => {
-              context.setLoginPassword(e.target.value);
+              setPassword(e.target.value);
             }}
           ></input>
+          <span style={{ color: "#00f3ff" }}>
+            {" "}
+            {loginValidator.current.message(
+              "password",
+              password,
+              "required|min:7"
+            )}
+          </span>
           <button type="submit" className={styles.login_button}>
             Login
           </button>
@@ -84,4 +68,4 @@ const Login = ({ history }) => {
   );
 };
 
-export default withRouter(Login);
+export default Login;

@@ -1,80 +1,46 @@
 import React from "react";
 import styles from "../css/regester.css";
-import { useContext, useRef, useState } from "react";
-import { EditContext } from "./EditContext";
-import { userRegister } from "../services/useService";
-import validation from "simple-react-validator";
-import { withRouter, Redirect } from "react-router-dom";
+import { useContext } from "react";
+
+import { Redirect } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Preloader from "./Preloader";
-const Regester = ({ history }) => {
-  const context = useContext(EditContext);
-  const [, forceUpdate] = useState();
-  const [loading, setLoading] = useState(false);
+import { Context } from "../context/Context";
+const Regester = () => {
+  const {
+    loading,
+
+    name,
+    email,
+    lastname,
+    password,
+    setName,
+    setEmail,
+    setLastname,
+
+    setPassword,
+    validator,
+    formSubmit,
+  } = useContext(Context);
+
   const token = localStorage.getItem("token");
 
-  const validator = useRef(
-    new validation({
-      messages: {
-        required: "Please fill this field",
-      },
-    })
-  );
-  const reset = () => {
-    context.setName("");
-    context.setEmail("");
-    context.setLastname("");
-    context.setFullname("");
-    context.setPassword("");
-  };
-  const formSubmit = async (e) => {
-    e.preventDefault();
-    const newPerson = {
-      fullname: context.name + " " + context.lastname,
-      email: context.email,
-      password: context.password,
-    };
-    try {
-      if (validator.current.allValid()) {
-        setLoading(true);
-        const { status, data } = await userRegister(newPerson);
-        if (status === 201) {
-          console.log(loading);
-          console.log(data);
-          setLoading(false);
-          reset();
-          history.replace("/");
-          console.log(loading);
-        }
-      } else {
-        validator.current.showMessages();
-        forceUpdate(1);
-      }
-    } catch (ex) {
-      alert("Problem");
-      console.log(ex);
-      setLoading(false);
-    }
-  };
-
   const handleName = (e) => {
-    console.log(context.name);
-    context.setName(e.target.value);
+    setName(e.target.value);
     validator.current.showMessageFor("name");
   };
   const handleLastname = (e) => {
-    context.setLastname(e.target.value);
+    setLastname(e.target.value);
     validator.current.showMessageFor("fullname");
   };
   const handleEmail = (e) => {
-    context.setEmail(e.target.value);
+    setEmail(e.target.value);
     validator.current.showMessageFor("email");
   };
   const handlePassword = (e) => {
-    context.setPassword(e.target.value);
+    setPassword(e.target.value);
     validator.current.showMessageFor("password");
   };
-
   if (token) return <Redirect to="/Home" />;
   return (
     <>
@@ -84,7 +50,7 @@ const Regester = ({ history }) => {
       </Helmet>
       <div id={styles.regesterDiv}>
         {loading ? <Preloader></Preloader> : null}
-        <form id={styles.regesterForm} onSubmit={formSubmit}>
+        <form id={styles.regesterForm} onSubmit={(e) => formSubmit(e)}>
           <h1 id={styles.regesterTitle}>Let's Regester</h1>
           <ul>
             <li>
@@ -93,12 +59,12 @@ const Regester = ({ history }) => {
                 name="name"
                 className={styles.regester_name}
                 placeholder="Name"
-                value={context.name}
+                value={name}
                 onChange={handleName}
               />
               <span style={{ color: "#ff00e0" }}>
                 {" "}
-                {validator.current.message("name", context.name, "required")}
+                {validator.current.message("name", name, "required")}
               </span>
             </li>
             <li>
@@ -107,16 +73,12 @@ const Regester = ({ history }) => {
                 name="lastname"
                 className={styles.regester_lastname}
                 placeholder="Last name"
-                value={context.lastname}
+                value={lastname}
                 onChange={handleLastname}
               />
               <span style={{ color: "#ff00e0" }}>
                 {" "}
-                {validator.current.message(
-                  "lastname",
-                  context.lastname,
-                  "required"
-                )}
+                {validator.current.message("lastname", lastname, "required")}
               </span>
             </li>
             <li>
@@ -125,16 +87,12 @@ const Regester = ({ history }) => {
                 name="email"
                 className={styles.regester_email}
                 placeholder="Email Address"
-                value={context.email}
+                value={email}
                 onChange={handleEmail}
               />
               <span style={{ color: "#ff00e0" }}>
                 {" "}
-                {validator.current.message(
-                  "email",
-                  context.email,
-                  "email|required"
-                )}
+                {validator.current.message("email", email, "email|required")}
               </span>
             </li>
             <li>
@@ -143,14 +101,14 @@ const Regester = ({ history }) => {
                 name="password"
                 className={styles.regester_password}
                 placeholder="Password"
-                value={context.password}
+                value={password}
                 onChange={handlePassword}
               />
               <span style={{ color: "#ff00e0" }}>
                 {" "}
                 {validator.current.message(
                   "password",
-                  context.password,
+                  password,
                   "required|min:7"
                 )}
               </span>
@@ -167,4 +125,4 @@ const Regester = ({ history }) => {
   );
 };
 
-export default withRouter(Regester);
+export default Regester;
