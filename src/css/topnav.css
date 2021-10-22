@@ -1,0 +1,21 @@
+.container {
+  display: inline-block;
+  width: 80%;
+  padding: 0.5em;
+  background: rgb(38, 37, 41);
+  font-size: 1.5rem;
+}
+.container ul {
+  display: flex;
+  justify-content: space-around;
+}
+.container ul li {
+  list-style: none;
+  margin: 0.2em;
+}
+.link {
+  color: yellow;
+}
+.activeLink {
+  color: red !important;
+}

@@ -207,6 +207,16 @@ const NavBody = () => {
               / Logout
             </Link>
           )}
+          {user.isAdmin === true && (
+            <Link
+              to="/Dashboard"
+              className={styles.links}
+              activeclassname={styles.activLink}
+            >
+              {" "}
+              / Dashboard
+            </Link>
+          )}
         </div>
 
         <div className={styles.menuLogo}>

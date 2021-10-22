@@ -34,7 +34,6 @@ const UserContext = ({ children, history }) => {
 
     try {
       if (loginValidator.current.allValid()) {
-        alert("asd");
         setLoading(true);
         const { status, data } = await userLogin(user);
         if (status === 200) {
@@ -78,7 +77,6 @@ const UserContext = ({ children, history }) => {
         setLoading(true);
         const { status } = await userRegister(newPerson);
         if (status === 201) {
-          alert("ASD");
           setLoading(false);
           reset();
           history.replace("/");
