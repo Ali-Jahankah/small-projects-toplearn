@@ -22,3 +22,11 @@ export const dropdown3 = (state = false, action) => {
       return state;
   }
 };
+export const dashboardDropdown = (state = false, action) => {
+  switch (action.type) {
+    case "TOGGLE":
+      return !state;
+    default:
+      return state;
+  }
+};

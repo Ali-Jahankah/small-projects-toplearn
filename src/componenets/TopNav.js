@@ -1,11 +1,23 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useRouteMatch } from "react-router-dom";
+import { dashboardHamburAction } from "../actions/dropdownAction";
 import styles from "../css/topnav.css";
-const TopNav = () => {
+const TopNav = ({ user }) => {
   const { url } = useRouteMatch();
+  const dispatch = useDispatch();
+  const menu = useSelector((state) => state.dashboardDropdown);
   return (
     <div className={styles.container}>
       <nav className={styles.main_nav}>
+        <div
+          className={styles.hambur_menu}
+          onClick={() => dispatch(dashboardHamburAction())}
+        >
+          {user.fullname}
+        </div>
+      </nav>
+      <div className={menu ? styles.hambur_div : styles.hide}>
         <ul>
           <li>
             <NavLink
@@ -14,7 +26,7 @@ const TopNav = () => {
               className={styles.link}
               exact
             >
-              Going to Website
+              Main Website
             </NavLink>
           </li>
           <li>
@@ -38,7 +50,7 @@ const TopNav = () => {
             </NavLink>
           </li>
         </ul>
-      </nav>
+      </div>
     </div>
   );
 };

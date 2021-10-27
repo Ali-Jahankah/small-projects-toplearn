@@ -5,7 +5,7 @@
   justify-content: space-between;
   background: transparent;
   z-index: 99;
-  align-items:center;
+  align-items: center;
 }
 .hamburger_button {
   display: none;
@@ -184,5 +184,8 @@
     max-width: 100%;
     max-height: 13vw;
     background: rgb(255, 255, 255);
+  }
+  .links {
+    font-size: 0.7rem;
   }
 }

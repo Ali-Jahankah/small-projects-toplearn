@@ -13,3 +13,8 @@ export const dropdown3Action = () => {
     await dispatch({ type: "DROP3" });
   };
 };
+export const dashboardHamburAction = () => {
+  return async (dispatch) => {
+    await dispatch({ type: "TOGGLE" });
+  };
+};

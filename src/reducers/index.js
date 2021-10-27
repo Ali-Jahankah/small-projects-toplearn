@@ -17,7 +17,7 @@ import {
   personNameReducer,
   newPerson,
 } from "./person";
-import { dropdown1, dropdown2, dropdown3 } from "./dropdown";
+import { dropdown1, dropdown2, dropdown3, dashboardDropdown } from "./dropdown";
 import { setName, setLastame, setAge, setGender } from "./editPerson.js";
 import { showEdit } from "./showPerson";
 import { courses, course, errorHandler } from "./courseReducers";
@@ -48,5 +48,6 @@ const reducer = combineReducers({
   NavParts1,
   NavParts2,
   NavParts3,
+  dashboardDropdown,
 });
 export default reducer;

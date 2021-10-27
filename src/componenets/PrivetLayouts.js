@@ -12,7 +12,7 @@ const PrivetLayouts = ({ children }) => {
       <Helmet>
         <title>Privet Layout</title>
       </Helmet>
-      <TopNav></TopNav>
+      <TopNav user={user}></TopNav>
       {children}
     </>
   );
