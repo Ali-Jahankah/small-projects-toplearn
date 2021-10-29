@@ -1,0 +1,22 @@
+#container {
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+#container h1 {
+  font-size: 5rem;
+  margin: auto 0;
+  margin: 40vh 0;
+  animation: text 3s infinite;
+}
+@keyframes text {
+  100% {
+    transform: rotate(360deg);
+  }
+}

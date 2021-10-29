@@ -1,0 +1,22 @@
+import Edit from "../svg/svgEditRedux";
+import Delete from "../svg/svgDeleteRedux";
+const Person = ({ number, person }) => {
+  return (
+    <tr style={{ background: person.myclass }}>
+      <td>{number}</td>
+      <td>{person.name} </td>
+      <td>{person.lastname}</td>
+      <td>{person.gender}</td>
+      <td>{person.age} </td>
+      <td>{person.time}</td>
+      <td>
+        <Edit mykey={person.id}></Edit>
+      </td>
+      <td>
+        <Delete mykey={person.id}></Delete>
+      </td>
+    </tr>
+  );
+};
+
+export default Person;

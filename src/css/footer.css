@@ -1,0 +1,13 @@
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  color: pink;
+  background: rgb(75, 74, 74);
+  font-size: 2vw;
+}
+@media screen and (max-width: 481px) {
+  .footer {
+    font-size: 5vw;
+  }
+}

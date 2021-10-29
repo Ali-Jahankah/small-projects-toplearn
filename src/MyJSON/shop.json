@@ -1,0 +1,335 @@
+[
+  {
+    "id": "reddead",
+    "name": "Red Dead 2",
+    "price": "60",
+    "lastprice": "",
+    "type": "popular",
+    "year": "2020",
+    "src": "/img/reddead.jpg"
+  },
+  {
+    "id": "gtav",
+    "name": "Grand Theft Auto V",
+    "price": "20",
+    "lastprice": "",
+    "type": "popular",
+    "year": "2019",
+    "src": "/img/gta.jpg"
+  },
+  {
+    "id": "callofduty",
+    "name": "Call Of Duty",
+    "price": "10",
+    "lastprice": "",
+    "type": "popular",
+    "year": "2019",
+    "src": "/img/cod.jpeg"
+  },
+  {
+    "id": "dota",
+    "name": "Dota 2",
+    "price": "13",
+    "lastprice": "",
+    "type": "popular",
+    "year": "2013",
+    "src": "/img/dota2.jpg"
+  },
+  {
+    "id": "fifa",
+    "name": "Fifa 20",
+    "price": "35",
+    "lastprice": "",
+    "type": "popular",
+    "year": "2020",
+    "src": "/img/fifa20.jpg"
+  },
+  {
+    "id": "leagueoflegends",
+    "name": "League Of Legends",
+    "price": "40",
+    "lastprice": "",
+    "type": "popular",
+    "year": "2015",
+    "src": "/img/leagueoflegends.jpg"
+  },
+  {
+    "id": "tombraider",
+    "name": "Tomb Raider 4",
+    "price": "37",
+    "lastprice": "",
+    "type": "popular",
+    "year": "2018",
+    "src": "/img/tomb.jpeg"
+  },
+  {
+    "id": "wow",
+    "name": "WOW",
+    "price": "27",
+    "lastprice": "",
+    "type": "popular",
+    "year": "2015",
+    "src": "/img/wow.jpg"
+  },
+  {
+    "id": "borderlands",
+    "name": "Border Lands 3",
+    "price": "7",
+    "lastprice": "",
+    "type": "Latest",
+    "year": "2021",
+    "src": "/img/borderlands3.jpg"
+  },
+  {
+    "id": "hood",
+    "name": "Hood",
+    "price": "40",
+    "lastprice": "",
+    "type": "Latest",
+    "year": "2021",
+    "src": "/img/hood.jpg"
+  },
+  {
+    "id": "kursk",
+    "name": "Kursk",
+    "price": "22",
+    "lastprice": "",
+    "type": "Latest",
+    "year": "2021",
+    "src": "/img/kursk.jpg"
+  },
+  {
+    "id": "residentevil",
+    "name": "Resident Evil 5",
+    "price": "57",
+    "lastprice": "",
+    "type": "Latest",
+    "year": "2021",
+    "src": "/img/residentevil.jpg"
+  },
+  {
+    "id": "skatecity",
+    "name": "Skate City 3",
+    "price": "7",
+    "lastprice": "",
+    "type": "Latest",
+    "year": "2021",
+    "src": "/img/skatecity.jpg"
+  },
+  {
+    "id": "starwars",
+    "name": "Star Wars 3",
+    "price": "16",
+    "lastprice": "",
+    "type": "Latest",
+    "year": "2021",
+    "src": "/img/starwars.jpg"
+  },
+  {
+    "id": "subnautica",
+    "name": "Subnautica",
+    "price": "7",
+    "lastprice": "",
+    "type": "Latest",
+    "year": "2021",
+    "src": "/img/subnautica.jpg"
+  },
+  {
+    "id": "valhalla",
+    "name": "Assassin's Creed",
+    "price": "67",
+    "lastprice": "",
+    "type": "Latest",
+    "year": "2021",
+    "src": "/img/valhalla.jpg"
+  },
+  {
+    "id": "wreckfest",
+    "name": "Wrekfest",
+    "price": "17",
+    "lastprice": "",
+    "type": "Latest",
+    "year": "2021",
+    "src": "/img/wreckfest.jpg"
+  },
+  {
+    "id": "assassinodyssey",
+    "name": "Assassin's Odyssey",
+    "price": "27",
+    "lastprice": "40",
+    "type": "offer",
+    "year": "2020",
+    "src": "/img/assassinodyssey.jpg"
+  },
+  {
+    "id": "assassinorigin",
+    "name": "Assassin's Origin",
+    "price": "22",
+    "lastprice": "47",
+    "type": "offer",
+    "year": "2019",
+    "src": "/img/assassinorigin.jpg"
+  },
+  {
+    "id": "battlefield",
+    "name": "Battle field 5",
+    "price": "16",
+    "lastprice": "40",
+    "type": "offer",
+    "year": "2019",
+    "src": "/img/battlefield.jpg"
+  },
+  {
+    "id": "cyberpunk",
+    "name": "Cyber Punk",
+    "price": "57",
+    "lastprice": "70",
+    "type": "offer",
+    "year": "2020",
+    "src": "/img/cyberpunk.jpg"
+  },
+  {
+    "id": "farcry3",
+    "name": "Far Cry 3",
+    "price": "20",
+    "lastprice": "35",
+    "type": "offer",
+    "year": "2015",
+    "src": "/img/farcry3.jpg"
+  },
+  {
+    "id": "farcry4",
+    "name": "Far Cry 4",
+    "price": "27",
+    "lastprice": "35",
+    "type": "offer",
+    "year": "2018",
+    "src": "/img/farcry4.jpg"
+  },
+  {
+    "id": "farcry5",
+    "name": "Far Cry 5",
+    "price": "32",
+    "lastprice": "40",
+    "type": "offer",
+    "year": "2019",
+    "src": "/img/farcry5.jpg"
+  },
+  {
+    "id": "horizon",
+    "name": "Horizon",
+    "price": "17",
+    "lastprice": "35",
+    "type": "offer",
+    "year": "2020",
+    "src": "/img/horizon.jpg"
+  },
+  {
+    "id": "mafia",
+    "name": "Mafia",
+    "price": "17",
+    "lastprice": "35",
+    "type": "offer",
+    "year": "2020",
+    "src": "/img/mafia.jpg"
+  },
+  {
+    "id": "prototype",
+    "name": "Prototype 4",
+    "price": "20",
+    "lastprice": "28",
+    "type": "offer",
+    "year": "2018",
+    "src": "/img/prototype.jpg"
+  },
+  {
+    "id": "rust",
+    "name": "Rust",
+    "price": "Free",
+    "lastprice": "",
+    "type": "free",
+    "year": "2015",
+    "src": "/img/rust.jpg"
+  },
+  {
+    "id": "sniper",
+    "name": "Sniper Elite 3",
+    "price": "Free",
+    "lastprice": "",
+    "type": "free",
+    "year": "2017",
+    "src": "/img/sniper.jpg"
+  },
+  {
+    "id": "stormfall",
+    "name": "Stormfall",
+    "price": "Free",
+    "lastprice": "",
+    "type": "free",
+    "year": "2019",
+    "src": "/img/stormfall.jpg"
+  },
+  {
+    "id": "walkingdead",
+    "name": "Walking Dead",
+    "price": "Free",
+    "lastprice": "",
+    "type": "free",
+    "year": "2019",
+    "src": "/img/walkingdead.jpg"
+  },
+  {
+    "id": "warzone",
+    "name": "War Zone",
+    "price": "Free",
+    "lastprice": "",
+    "type": "free",
+    "year": "2019",
+    "src": "/img/warzone.jpg"
+  },
+  {
+    "id": "watchdogs",
+    "name": "Watch Dogs 1",
+    "price": "Free",
+    "lastprice": "",
+    "type": "free",
+    "year": "2018",
+    "src": "/img/watchdogs1.jpg"
+  },
+  {
+    "id": "watchdogs2",
+    "name": "Watch Dogs 2",
+    "price": "Free",
+    "lastprice": "",
+    "type": "free",
+    "year": "2020",
+    "src": "/img/watchdogs.jpg"
+  },
+  {
+    "id": "witcher3",
+    "name": "Witcher 3",
+    "price": "Free",
+    "lastprice": "",
+    "type": "free",
+    "year": "2018",
+    "src": "/img/witcher3.jpg"
+  },
+  {
+    "id": "chivalry2",
+    "name": "Chivalry 2",
+    "price": "Free",
+    "lastprice": "",
+    "type": "free",
+    "year": "2020",
+    "src": "/img/chivalry2.jpg"
+  },
+  {
+    "id": "rocketleague",
+    "name": "Rocket League",
+    "price": "Free",
+    "lastprice": "",
+    "type": "free",
+    "year": "2019",
+    "src": "/img/rocketleague.jpg"
+  }
+]

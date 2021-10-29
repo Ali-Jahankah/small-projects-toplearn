@@ -1,0 +1,92 @@
+.container {
+  width: 97%;
+  margin: 3vw auto;
+  display: flex;
+}
+.writing_tasks {
+  flex: 1.3;
+  background: transparent;
+  filter: drop-shadow(2px 4px 6px black);
+  position: relative;
+}
+.tasks {
+  flex: 2;
+
+  background: #2a2b2b9e;
+  border: 2px soid black;
+}
+.writing_container {
+  position: relative;
+}
+.writing_form {
+  margin: 1vw auto;
+  width: 90%;
+  display: flex;
+  row-gap: 1vw;
+  flex-direction: column;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(65, 59, 59, 0.356);
+  filter: blur(10px);
+}
+.writing_form textarea,
+.writing_form select,
+.writing_form input,
+.writing_form button,
+.writing_form option {
+  font-size: 1.5vw;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 20px;
+  resize: none;
+  cursor: pointer;
+  word-break: break-all;
+}
+.writing_form button {
+  margin: 0 auto;
+  width: 40%;
+  transition: all 1s;
+}
+.writing_form button:hover {
+  width: 70%;
+  background: #2196f3;
+}
+.tasks table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tasks table tr {
+  text-align: center;
+}
+.tasks table tr td {
+  border: 1px solid black;
+}
+.tasks table thead {
+  background: #42a5f5;
+}
+@media screen and (max-width: 481px) {
+  .container {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .writing_tasks {
+    margin-top: 5vw;
+  }
+  .tasks {
+    margin-top: 5vw;
+  }
+  .writing_form textarea,
+  .writing_form select,
+  .writing_form input,
+  .writing_form button,
+  .writing_form option {
+    font-size: 5vw;
+  }
+}

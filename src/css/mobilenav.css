@@ -1,0 +1,120 @@
+@media screen and (min-width: 481px) {
+  .menu_div {
+    display: none;
+  }
+  .hide_menu {
+    display: none;
+  }
+  .menuLogo {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .menu_div {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #130e10;
+    z-index: 5;
+    transition: all 2s;
+    transform: translateX(0%);
+    text-align: center;
+    flex-direction: column;
+
+    color: rgb(234, 123, 238);
+    font-size: 6vw;
+    font-weight: bold;
+    padding: 10px 1vw;
+    overflow-y: scroll;
+  }
+  .first_part_menu ul,
+  .second_part_menu ul,
+  .third_part_menu ul {
+    background: #302929;
+  }
+
+  .first_part_menu,
+  .second_part_menu,
+  .third_part_menu {
+    background: #302929;
+    transition: all 0.5s;
+    height: 100%;
+    margin-top: 2vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  .first_part,
+  .second_part,
+  .third_part {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
+
+  .hiding {
+    background: #302929;
+    transition: all 0.5s;
+    height: 0;
+    margin-top: 2vw;
+    overflow: hidden;
+  }
+
+  .hide_menu {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #0e68c5;
+    z-index: 5;
+    transform: translateX(100%);
+    transition: all 2s;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: rgb(234, 123, 238);
+    font-size: 6vw;
+    font-weight: bold;
+    padding: 2vw;
+    text-align: center;
+  }
+
+  .menu_div ul,
+  .hide_menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-evenly;
+  }
+  .menu_div ul li,
+  .hide_menu ul li {
+    list-style: none;
+    padding: 10px;
+    backdrop-filter: blur(1px);
+    filter: brightness(10px);
+  }
+  .activLink {
+    color: rgb(241, 2, 42) !important;
+    border-bottom: 2px solid black;
+  }
+  .menu_div ul li a,
+  .hide_menu ul li a {
+    text-decoration: none;
+    font-size: 6vw;
+    font-weight: 800;
+  }
+
+  .links {
+    color: rgb(234, 123, 238);
+  }
+  .links:hover {
+    color: rgb(241, 2, 42);
+  }
+}
