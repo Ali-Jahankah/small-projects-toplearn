@@ -22,6 +22,6 @@
   margin: 0 auto;
   display: block;
 }
-button:hover {
+.button:hover {
   background: linear-gradient(rgb(146, 176, 231), black);
 }

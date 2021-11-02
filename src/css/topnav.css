@@ -1,9 +1,9 @@
 .container {
-  display: inline-block;
   width: 100%;
-
+  z-index: 10;
   background: rgb(38, 37, 41);
-  font-size: 1.5rem;
+  font-size: 2vw;
+  position: relative;
 }
 .main_nav {
   padding: 0.5em;
@@ -36,12 +36,12 @@
   background: black;
 
   overflow: hidden;
-  height: 25%;
+  height: 25vh;
 }
 .hide {
   position: absolute;
   background: black;
-  height: 0%;
+  height: 0vh;
   overflow: hidden;
   transition: height 1.5s;
 }
@@ -52,4 +52,18 @@
 .hide a:hover,
 .hambur_div a:hover {
   color: rgb(253, 170, 69) !important;
+}
+
+@media screen and (max-width: 481px) {
+  .container {
+    font-size: 3vw;
+  }
+  .hambur_div {
+    height: 15vh;
+  }
+}
+@media screen and (orientation: landscape) and (max-width: 781px) {
+  .hambur_div {
+    height: 30vh;
+  }
 }

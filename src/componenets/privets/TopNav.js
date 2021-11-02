@@ -7,13 +7,13 @@ const TopNav = ({ user }) => {
   const { url } = useRouteMatch();
   const dispatch = useDispatch();
   const menu = useSelector((state) => state.dashboardDropdown);
+  const toggleMenu = () => {
+    dispatch(dashboardHamburAction());
+  };
   return (
     <div className={styles.container}>
       <nav className={styles.main_nav}>
-        <div
-          className={styles.hambur_menu}
-          onClick={() => dispatch(dashboardHamburAction())}
-        >
+        <div className={styles.hambur_menu} onClick={toggleMenu}>
           {user.fullname}
         </div>
       </nav>
@@ -25,6 +25,7 @@ const TopNav = ({ user }) => {
               activeClassName={styles.activeLink}
               className={styles.link}
               exact
+              onClick={toggleMenu}
             >
               Main Website
             </NavLink>
@@ -35,6 +36,7 @@ const TopNav = ({ user }) => {
               activeClassName={styles.activeLink}
               className={styles.link}
               exact
+              onClick={toggleMenu}
             >
               SignOut
             </NavLink>
@@ -45,6 +47,7 @@ const TopNav = ({ user }) => {
               activeClassName={styles.activeLink}
               className={styles.link}
               exact
+              onClick={toggleMenu}
             >
               Profile
             </NavLink>

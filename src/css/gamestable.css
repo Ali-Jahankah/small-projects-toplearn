@@ -1,0 +1,52 @@
+.main {
+  width: 100%;
+  padding: 1em;
+}
+.table {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 2vw;
+  font-weight: bold;
+  border-collapse: collapse;
+  color: bisque;
+}
+.table tbody tr {
+  background: rgba(3, 2, 2, 0.815);
+  border-bottom: 2px solid rgb(37, 36, 34);
+}
+.table thead {
+  background: rgb(197, 172, 172);
+  color: rgb(34, 32, 32) !important;
+}
+.table tbody tr td,
+.table tbody tr {
+  border-collapse: collapse;
+  padding: 1em;
+}
+.button {
+  padding: 5px;
+  font: 2vw bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.edit {
+  background: rgb(245, 233, 62);
+}
+.edit:hover {
+  background: rgb(255, 238, 0);
+}
+.delete {
+  background: rgb(255, 39, 50);
+}
+.delete:hover {
+  background: rgb(255, 0, 13);
+}
+.new_game_button {
+  display: inline-block;
+  margin: 10px auto;
+  padding: 0.5em;
+  font: 2vw bold;
+  background: rgba(63, 118, 206, 0.904);
+  cursor: pointer;
+}

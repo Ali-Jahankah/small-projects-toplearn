@@ -5,6 +5,7 @@
   color: pink;
   background: rgb(75, 74, 74);
   font-size: 2vw;
+  z-index: 20;
 }
 @media screen and (max-width: 481px) {
   .footer {

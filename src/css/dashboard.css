@@ -1,0 +1,19 @@
+.child {
+  font-size: 4vw;
+  font-family: fantasy;
+  text-align: center;
+
+  cursor: pointer;
+}
+.games {
+  padding: 1em;
+  background: linear-gradient(90deg, rgb(128, 36, 100), transparent);
+}
+.users {
+  padding: 1em;
+  background: linear-gradient(90deg, transparent, rgb(128, 36, 100));
+}
+.links {
+  color: rgb(255, 255, 255) !important;
+  text-shadow: 0 0 20px black;
+}

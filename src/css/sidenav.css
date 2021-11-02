@@ -1,0 +1,24 @@
+.nav {
+  width: 20%;
+  background: rgb(42, 38, 38);
+  font-size: 2vw;
+  text-align: center;
+  color: burlywood;
+}
+.isActive {
+  color: rgb(248, 112, 0) !important;
+  text-decoration: underline;
+}
+.link {
+  color: burlywood;
+}
+
+.nav ul li {
+  list-style: none;
+  padding: 0.5em;
+}
+@media screen and (max-width: 481px) {
+  .nav {
+    font-size: 3vw;
+  }
+}

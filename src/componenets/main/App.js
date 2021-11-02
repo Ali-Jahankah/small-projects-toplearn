@@ -22,15 +22,23 @@ import UserProfile from "../user/UserProfile";
 import UserContext from "../../context/UserContext";
 import MainLayouts from "../layouts/MainLayouts";
 import AdminProfile from "../privets/AdminProfile";
+import GamesTable from "../privets/GamesTable";
+import Dashboard from "../privets/Dashboard";
 
 function App() {
   return (
     <Switch>
       <Route path={["/Dashboard"]}>
         <PrivetLayouts>
+          <Route path="/Dashboard" component={Dashboard} exact></Route>
           <Route
             path="/Dashboard/Admin_Profile"
             component={AdminProfile}
+            exact
+          ></Route>
+          <Route
+            path="/Dashboard/Games-table"
+            component={GamesTable}
             exact
           ></Route>
         </PrivetLayouts>
