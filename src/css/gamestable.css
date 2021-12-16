@@ -50,3 +50,6 @@
   background: rgba(63, 118, 206, 0.904);
   cursor: pointer;
 }
+.new_game_button:hover {
+  background: rgba(0, 98, 255, 0.904);
+}

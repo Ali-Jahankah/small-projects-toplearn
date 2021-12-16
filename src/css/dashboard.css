@@ -7,13 +7,13 @@
 }
 .games {
   padding: 1em;
-  background: linear-gradient(90deg, rgb(128, 36, 100), transparent);
+  background: linear-gradient(90deg, rgb(42, 39, 41), transparent);
 }
 .users {
   padding: 1em;
-  background: linear-gradient(90deg, transparent, rgb(128, 36, 100));
+  background: linear-gradient(90deg, transparent, rgb(42, 39, 41));
 }
 .links {
   color: rgb(255, 255, 255) !important;
-  text-shadow: 0 0 20px black;
+  text-shadow: 0 0 20px rgb(0, 76, 240);
 }

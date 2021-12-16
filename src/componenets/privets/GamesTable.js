@@ -1,18 +1,24 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useContext } from "react";
 import styles from "../../css/gamestable.css";
-import { useState } from "react";
-import { paginate } from "../pagination/paginate";
 import Pagination from "../pagination/Pagination";
+import { DashContext } from "../../context/DashContext";
+import EditDialog from "./EditDialog";
 
 const GamesTable = () => {
-  const courses = useSelector((state) => state.courses);
-  const [gamesPerPage] = useState(4);
-  const [currentPage, setCurrentPage] = useState(1);
-  const games = paginate(courses, currentPage, gamesPerPage);
+  const context = useContext(DashContext);
+
   return (
     <>
-      <div className={styles.new_game_button}>Add a new game +</div>
+      {context.dialog ? <EditDialog></EditDialog> : null}
+
+      <div
+        className={styles.new_game_button}
+        onClick={() => {
+          context.setDialog(true);
+        }}
+      >
+        Add a new game +
+      </div>
       <div className={styles.main}>
         <table className={styles.table}>
           <thead>
@@ -27,7 +33,7 @@ const GamesTable = () => {
             </tr>
           </thead>
           <tbody>
-            {games.map((item, index) => (
+            {context.games.map((item, index) => (
               <tr key={item.id} title={item.id}>
                 <td>{index + 1}</td>
                 <td>{item.name}</td>
@@ -51,10 +57,10 @@ const GamesTable = () => {
         <br />
       </div>
       <Pagination
-        courses={courses}
-        currentPage={currentPage}
-        perPage={gamesPerPage}
-        pageChange={setCurrentPage}
+        courses={context.courses}
+        currentPage={context.currentPage}
+        perPage={context.gamesPerPage}
+        pageChange={context.handleChange}
       ></Pagination>
     </>
   );

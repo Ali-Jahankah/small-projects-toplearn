@@ -2,6 +2,12 @@ export const courses = (state = [], action) => {
   switch (action.type) {
     case "INIT":
       return [...action.payload];
+    case "ADD_GAME":
+      return [...action.payload];
+    case "DELETE_GAME":
+      return [...action.payload];
+    case "UPDATE_GAME":
+      return [...action.payload];
     default:
       return state;
   }

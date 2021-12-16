@@ -13,3 +13,12 @@ export const courses = () => {
 export const course = (courseId) => {
   return http.get(`${config.localapi}/api/course/${courseId}`);
 };
+export const newCourse = (course) => {
+  return http.post(`${config.localapi}/api/course`, course);
+};
+export const updateCourse = (newGame, newGameId) => {
+  return http.put(`${config.localapi}/api/course/${newGameId}`, newGame);
+};
+export const deleteCourse = (newGameId) => {
+  return http.delete(`${config.localapi}/api/course/${newGameId}`);
+};

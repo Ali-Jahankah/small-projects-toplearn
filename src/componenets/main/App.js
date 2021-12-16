@@ -1,7 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import PrivetLayouts from "../layouts/PrivetLayouts";
 import { memo } from "react";
+import { useSelector } from "react-redux";
+import PrivetLayouts from "../layouts/PrivetLayouts";
 import EditContextProvider from "../../context/EditContext";
 import HomePage from "./HomePage";
 import People from "../peoplemanage/People";
@@ -24,8 +25,10 @@ import MainLayouts from "../layouts/MainLayouts";
 import AdminProfile from "../privets/AdminProfile";
 import GamesTable from "../privets/GamesTable";
 import Dashboard from "../privets/Dashboard";
+import { GamesContext } from "../../context/GamesContext";
 
 function App() {
+  const courses = useSelector((state) => state.courses);
   return (
     <Switch>
       <Route path={["/Dashboard"]}>
@@ -36,11 +39,13 @@ function App() {
             component={AdminProfile}
             exact
           ></Route>
-          <Route
-            path="/Dashboard/Games-table"
-            component={GamesTable}
-            exact
-          ></Route>
+          <GamesContext courses={courses}>
+            <Route
+              path="/Dashboard/Games-table"
+              component={GamesTable}
+              exact
+            ></Route>
+          </GamesContext>
         </PrivetLayouts>
       </Route>
 

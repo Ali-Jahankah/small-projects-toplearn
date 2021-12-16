@@ -1,4 +1,4 @@
-import { course, courses } from "../services/useService";
+import { course, courses, newCourse } from "../services/useService";
 export const getCourses = () => {
   return async (dispatch) => {
     const { data } = await courses();
@@ -18,5 +18,17 @@ export const getCourse = (courseId) => {
 export const errorAction = () => {
   return async (dispatch) => {
     await dispatch({ type: "FALSE" });
+  };
+};
+export const newGameAction = (newGame) => {
+  return async (dispatch, getState) => {
+    const { data, response } = await newCourse(newGame);
+    if (response === 201) {
+      alert("New game has successfully added! ");
+    }
+    await dispatch({
+      type: "ADD_GAME",
+      payload: [...getState().courses, data.course],
+    });
   };
 };
