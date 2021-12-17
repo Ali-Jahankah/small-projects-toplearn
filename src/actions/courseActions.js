@@ -1,4 +1,9 @@
-import { course, courses, newCourse } from "../services/useService";
+import {
+  course,
+  courses,
+  newCourse,
+  updateCourse,
+} from "../services/useService";
 export const getCourses = () => {
   return async (dispatch) => {
     const { data } = await courses();
@@ -22,13 +27,34 @@ export const errorAction = () => {
 };
 export const newGameAction = (newGame) => {
   return async (dispatch, getState) => {
-    const { data, response } = await newCourse(newGame);
-    if (response === 201) {
+    const { data, status } = await newCourse(newGame);
+
+    if (status && status === 201) {
       alert("New game has successfully added! ");
     }
     await dispatch({
       type: "ADD_GAME",
       payload: [...getState().courses, data.course],
     });
+  };
+};
+export const editGameAction = (courseId, newGame) => {
+  return async (dispatch, getState) => {
+    const courses = [...getState().courses];
+    const updatedCourses = [...courses];
+    const courseIndex = updatedCourses.findIndex(
+      (course) => course._id === courseId
+    );
+    let course = updatedCourses[courseIndex];
+    course = { ...Object.fromEntries(newGame) };
+    updatedCourses[courseIndex] = course;
+    try {
+      const { data, status } = await updateCourse(newGame, courseId);
+      status === 200 && alert("Edit was successful!");
+      dispatch({ type: "UPDATE_GAME", payload: [...updatedCourses] });
+    } catch (ex) {
+      dispatch({ type: "UPDATE_GAME", payload: [...courses] });
+      console.log(ex);
+    }
   };
 };

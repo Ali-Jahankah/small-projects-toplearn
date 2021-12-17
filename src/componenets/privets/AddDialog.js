@@ -1,51 +1,37 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "../../css/editDialog.css";
 import { useState, useContext } from "react";
 import { DashContext } from "../../context/DashContext";
+import { newGameAction } from "../../actions/courseActions";
 import { useDispatch } from "react-redux";
-import { editGameAction } from "../../actions/courseActions";
-const EditDialog = () => {
-  const context = useContext(DashContext);
-
-  const { course, setEditDialog } = context;
+const AddDialog = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [year, setYear] = useState("");
   const [price, setPrice] = useState("");
   const [type, setType] = useState("");
-  const [courseId, setCourseId] = useState("");
-  const [src, setSrc] = useState("");
-  useEffect(() => {
-    setCourseId(course._id);
-    setTitle(course.name);
-    setYear(course.year + "");
-    setPrice(course.price + "");
-    setType(course.type);
-    setSrc(course.src);
-    return () => {
-      setCourseId();
-      setTitle();
-      setYear();
-      setPrice();
-      setType();
-      setSrc();
-    };
-  }, [course]);
+  // const [url, setUrl] = useState("");
+  const context = useContext(DashContext);
+  const reset = () => {
+    setTitle("");
+    setYear("");
+    setPrice("");
+    setType("");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
       let newGame = new FormData();
-      e.target.imageUrl.files[0]
-        ? newGame.append("src", e.target.imageUrl.files[0])
-        : newGame.append("src", course.src);
-
+      newGame.append("src", e.target.imageUrl.files[0]);
       newGame.append("name", title);
       newGame.append("year", year);
       newGame.append("price", Number.parseInt(price));
       newGame.append("type", type);
-      dispatch(editGameAction(courseId, newGame));
-      context.setEditDialog(false);
+
+      dispatch(newGameAction(newGame));
+      reset();
+      context.setDialog(false);
     } catch (e) {
       console.log(e);
     }
@@ -65,6 +51,7 @@ const EditDialog = () => {
                     onChange={(e) => {
                       setTitle(e.target.value);
                     }}
+                    placeholder="asdasdasd"
                   ></input>
                 </td>
                 <td>{title ? 25 - title.length : 25}</td>
@@ -127,7 +114,7 @@ const EditDialog = () => {
                   <button
                     className={`${styles.button} ${styles.cancle}`}
                     onClick={() => {
-                      setEditDialog(false);
+                      context.setDialog(false);
                     }}
                   >
                     Cancle
@@ -143,4 +130,4 @@ const EditDialog = () => {
   );
 };
 
-export default EditDialog;
+export default AddDialog;

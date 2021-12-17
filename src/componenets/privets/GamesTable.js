@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styles from "../../css/gamestable.css";
 import Pagination from "../pagination/Pagination";
 import { DashContext } from "../../context/DashContext";
+import AddDialog from "./AddDialog";
 import EditDialog from "./EditDialog";
 
 const GamesTable = () => {
@@ -9,7 +10,8 @@ const GamesTable = () => {
 
   return (
     <>
-      {context.dialog ? <EditDialog></EditDialog> : null}
+      {context.dialog ? <AddDialog></AddDialog> : null}
+      {context.editDialog ? <EditDialog></EditDialog> : null}
 
       <div
         className={styles.new_game_button}
@@ -41,7 +43,12 @@ const GamesTable = () => {
                 <td>{item.type}</td>
                 <td>{item.price === 0 ? "Free" : "$" + item.price}</td>
                 <td>
-                  <button className={`${styles.button} ${styles.edit}`}>
+                  <button
+                    className={`${styles.button} ${styles.edit}`}
+                    onClick={() => {
+                      context.editDialogDisplay(item);
+                    }}
+                  >
                     Edit
                   </button>
                 </td>
