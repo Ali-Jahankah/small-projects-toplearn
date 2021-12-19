@@ -1,6 +1,7 @@
 import {
   course,
   courses,
+  deleteCourse,
   newCourse,
   updateCourse,
 } from "../services/useService";
@@ -54,6 +55,20 @@ export const editGameAction = (courseId, newGame) => {
       dispatch({ type: "UPDATE_GAME", payload: [...updatedCourses] });
     } catch (ex) {
       dispatch({ type: "UPDATE_GAME", payload: [...courses] });
+      console.log(ex);
+    }
+  };
+};
+export const deleteGameAction = (courseId) => {
+  return async (dispatch, getState) => {
+    const courses = [...getState().courses];
+    const filteredCourses = courses.filter((course) => course._id !== courseId);
+    try {
+      await dispatch({ type: "DELETE_GAME", payload: [...filteredCourses] });
+      const { status } = await deleteCourse(courseId);
+      status === 200 && alert("Game was deleted successfuly!");
+    } catch (ex) {
+      await dispatch({ type: "DELETE_GAME", payload: [...courses] });
       console.log(ex);
     }
   };

@@ -4,6 +4,7 @@ import Pagination from "../pagination/Pagination";
 import { DashContext } from "../../context/DashContext";
 import AddDialog from "./AddDialog";
 import EditDialog from "./EditDialog";
+import DeleteDialog from "./DeleteDialog";
 
 const GamesTable = () => {
   const context = useContext(DashContext);
@@ -12,6 +13,7 @@ const GamesTable = () => {
     <>
       {context.dialog ? <AddDialog></AddDialog> : null}
       {context.editDialog ? <EditDialog></EditDialog> : null}
+      {context.deleteDialog ? <DeleteDialog></DeleteDialog> : null}
 
       <div
         className={styles.new_game_button}
@@ -53,7 +55,12 @@ const GamesTable = () => {
                   </button>
                 </td>
                 <td>
-                  <button className={`${styles.button} ${styles.delete}`}>
+                  <button
+                    className={`${styles.button} ${styles.delete}`}
+                    onClick={() => {
+                      context.deleteDialogDisplay(item);
+                    }}
+                  >
                     Delete
                   </button>
                 </td>

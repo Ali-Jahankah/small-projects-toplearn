@@ -8,6 +8,7 @@ export const GamesContext = ({ children, courses }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [dialog, setDialog] = useState(false);
   const [editDialog, setEditDialog] = useState(false);
+  const [deleteDialog, setDeleteDialog] = useState(false);
   const [course, setCourse] = useState({});
   const games = paginate(courses, currentPage, gamesPerPage);
   const handleChange = (page) => {
@@ -16,6 +17,10 @@ export const GamesContext = ({ children, courses }) => {
   const editDialogDisplay = (course) => {
     setCourse(course);
     setEditDialog(true);
+  };
+  const deleteDialogDisplay = (course) => {
+    setCourse(course);
+    setDeleteDialog(true);
   };
 
   return (
@@ -33,9 +38,11 @@ export const GamesContext = ({ children, courses }) => {
         course,
         setCourse,
         editDialogDisplay,
+        setDeleteDialog,
+        deleteDialogDisplay,
+        deleteDialog,
       }}
     >
-      {console.log(course)}
       {children}
     </DashContext.Provider>
   );
