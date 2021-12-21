@@ -8,20 +8,30 @@ import DeleteDialog from "./DeleteDialog";
 
 const GamesTable = () => {
   const context = useContext(DashContext);
-
+  const { dialog, editDialog, deleteDialog, setSearch, filteredList, games } =
+    context;
   return (
     <>
-      {context.dialog ? <AddDialog></AddDialog> : null}
-      {context.editDialog ? <EditDialog></EditDialog> : null}
-      {context.deleteDialog ? <DeleteDialog></DeleteDialog> : null}
-
-      <div
-        className={styles.new_game_button}
-        onClick={() => {
-          context.setDialog(true);
-        }}
-      >
-        Add a new game +
+      {dialog ? <AddDialog></AddDialog> : null}
+      {editDialog ? <EditDialog></EditDialog> : null}
+      {deleteDialog ? <DeleteDialog></DeleteDialog> : null}
+      <div className={styles.header_div}>
+        <button
+          className={styles.new_game_button}
+          onClick={() => {
+            context.setDialog(true);
+          }}
+        >
+          Add a new game +
+        </button>
+        <input
+          type="text"
+          className={styles.search_field}
+          placeholder="Search..."
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        ></input>
       </div>
       <div className={styles.main}>
         <table className={styles.table}>
@@ -37,7 +47,7 @@ const GamesTable = () => {
             </tr>
           </thead>
           <tbody>
-            {context.games.map((item, index) => (
+            {games.map((item, index) => (
               <tr key={item.id} title={item.id}>
                 <td>{index + 1}</td>
                 <td>{item.name}</td>
@@ -71,7 +81,7 @@ const GamesTable = () => {
         <br />
       </div>
       <Pagination
-        courses={context.courses}
+        courses={filteredList.length}
         currentPage={context.currentPage}
         perPage={context.gamesPerPage}
         pageChange={context.handleChange}

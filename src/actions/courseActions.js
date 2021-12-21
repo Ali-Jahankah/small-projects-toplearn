@@ -44,7 +44,7 @@ export const editGameAction = (courseId, newGame) => {
     const courses = [...getState().courses];
     const updatedCourses = [...courses];
     const courseIndex = updatedCourses.findIndex(
-      (course) => course._id === courseId
+      (course) => course._id == courseId
     );
     let course = updatedCourses[courseIndex];
     course = { ...Object.fromEntries(newGame) };
@@ -52,9 +52,9 @@ export const editGameAction = (courseId, newGame) => {
     try {
       const { data, status } = await updateCourse(newGame, courseId);
       status === 200 && alert("Edit was successful!");
-      dispatch({ type: "UPDATE_GAME", payload: [...updatedCourses] });
+      await dispatch({ type: "UPDATE_GAME", payload: [...updatedCourses] });
     } catch (ex) {
-      dispatch({ type: "UPDATE_GAME", payload: [...courses] });
+      await dispatch({ type: "UPDATE_GAME", payload: [...courses] });
       console.log(ex);
     }
   };

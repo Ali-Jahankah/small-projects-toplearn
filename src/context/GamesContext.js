@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { paginate } from "../componenets/pagination/paginate";
-import EditDialog from "../componenets/privets/EditDialog";
 import { DashContext } from "./DashContext";
 
 export const GamesContext = ({ children, courses }) => {
@@ -10,7 +9,12 @@ export const GamesContext = ({ children, courses }) => {
   const [editDialog, setEditDialog] = useState(false);
   const [deleteDialog, setDeleteDialog] = useState(false);
   const [course, setCourse] = useState({});
-  const games = paginate(courses, currentPage, gamesPerPage);
+  const [search, setSearch] = useState([]);
+  const [courseList, setCourseList] = useState([]);
+  useEffect(() => {
+    setCourseList(courses);
+  }, [courses]);
+
   const handleChange = (page) => {
     setCurrentPage(page);
   };
@@ -22,6 +26,10 @@ export const GamesContext = ({ children, courses }) => {
     setCourse(course);
     setDeleteDialog(true);
   };
+  const filteredList = courseList.filter((item) => item.name.includes(search));
+  const games = paginate(filteredList, currentPage, gamesPerPage);
+  console.log(filteredList);
+  console.log(games);
 
   return (
     <DashContext.Provider
@@ -41,6 +49,9 @@ export const GamesContext = ({ children, courses }) => {
         setDeleteDialog,
         deleteDialogDisplay,
         deleteDialog,
+        setSearch,
+        filteredList,
+        courseList,
       }}
     >
       {children}

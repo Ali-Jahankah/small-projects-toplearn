@@ -1,7 +1,7 @@
 import styles from "../../css/paginate.css";
 import { range } from "lodash";
 const Pagination = ({ courses, currentPage, perPage, pageChange }) => {
-  const totalPages = Math.ceil(courses.length / perPage);
+  const totalPages = Math.ceil(courses / perPage);
   const pages = range(1, totalPages + 1);
   if (totalPages === 1) return null;
   return (
