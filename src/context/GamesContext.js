@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { paginate } from "../componenets/pagination/paginate";
 import { DashContext } from "./DashContext";
+import { orderBy } from "lodash";
 
 export const GamesContext = ({ children, courses }) => {
   const [gamesPerPage] = useState(4);
@@ -9,8 +10,9 @@ export const GamesContext = ({ children, courses }) => {
   const [editDialog, setEditDialog] = useState(false);
   const [deleteDialog, setDeleteDialog] = useState(false);
   const [course, setCourse] = useState({});
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState("");
   const [courseList, setCourseList] = useState([]);
+
   useEffect(() => {
     setCourseList(courses);
   }, [courses]);
@@ -26,11 +28,18 @@ export const GamesContext = ({ children, courses }) => {
     setCourse(course);
     setDeleteDialog(true);
   };
-  const filteredList = courseList.filter((item) => item.name.includes(search));
+  const filteredList = courseList.filter((item) =>
+    item.name.toLowerCase().includes(search)
+  );
   const games = paginate(filteredList, currentPage, gamesPerPage);
   console.log(filteredList);
   console.log(games);
-
+  const asc = () => {
+    setCourseList(orderBy(courseList, "price", "asc"));
+  };
+  const desc = () => {
+    setCourseList(orderBy(courseList, "price", "desc"));
+  };
   return (
     <DashContext.Provider
       value={{
@@ -52,6 +61,8 @@ export const GamesContext = ({ children, courses }) => {
         setSearch,
         filteredList,
         courseList,
+        asc,
+        desc,
       }}
     >
       {children}
