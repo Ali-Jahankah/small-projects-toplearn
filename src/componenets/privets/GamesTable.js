@@ -8,8 +8,16 @@ import DeleteDialog from "./DeleteDialog";
 
 const GamesTable = () => {
   const context = useContext(DashContext);
-  const { dialog, editDialog, deleteDialog, setSearch, filteredList, games } =
-    context;
+  const {
+    dialog,
+    editDialog,
+    deleteDialog,
+    setSearch,
+    filteredList,
+    games,
+    asc,
+    desc,
+  } = context;
   return (
     <>
       {dialog ? <AddDialog></AddDialog> : null}
@@ -41,7 +49,21 @@ const GamesTable = () => {
               <th>Title</th>
               <th>Year</th>
               <th>Type</th>
-              <th>Price</th>
+              <th>
+                <img
+                  src={"/img/svg/up.svg"}
+                  alt="Up arrow"
+                  style={{ cursor: "pointer", width: "12px", height: " 15px" }}
+                  onClick={asc}
+                />{" "}
+                Price{" "}
+                <img
+                  src="/img/svg/down.svg"
+                  alt="Down arrow"
+                  style={{ cursor: "pointer", width: "12px", height: " 15px" }}
+                  onClick={desc}
+                />
+              </th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>

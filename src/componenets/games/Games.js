@@ -15,6 +15,7 @@ const Games = () => {
   const onPageChange = (page) => {
     setCurrentPage(page);
   };
+  console.log(games);
   useEffect(() => {
     dispatch(errorAction());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -54,7 +55,7 @@ const Games = () => {
         })}
       </div>
       <Pagination
-        courses={courses}
+        courses={courses.length}
         currentPage={currentPage}
         perPage={gamesPerPage}
         pageChange={onPageChange}

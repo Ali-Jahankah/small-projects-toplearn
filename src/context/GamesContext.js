@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { paginate } from "../componenets/pagination/paginate";
 import { DashContext } from "./DashContext";
-
+import { orderBy } from "lodash";
 export const GamesContext = ({ children, courses }) => {
   const [gamesPerPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,9 +28,13 @@ export const GamesContext = ({ children, courses }) => {
   };
   const filteredList = courseList.filter((item) => item.name.includes(search));
   const games = paginate(filteredList, currentPage, gamesPerPage);
-  console.log(filteredList);
-  console.log(games);
 
+  const asc = () => {
+    setCourseList(orderBy(courseList, "price", "asc"));
+  };
+  const desc = () => {
+    setCourseList(orderBy(courseList, "price", "desc"));
+  };
   return (
     <DashContext.Provider
       value={{
@@ -52,6 +56,8 @@ export const GamesContext = ({ children, courses }) => {
         setSearch,
         filteredList,
         courseList,
+        asc,
+        desc,
       }}
     >
       {children}
