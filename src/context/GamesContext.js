@@ -9,8 +9,9 @@ export const GamesContext = ({ children, courses }) => {
   const [editDialog, setEditDialog] = useState(false);
   const [deleteDialog, setDeleteDialog] = useState(false);
   const [course, setCourse] = useState({});
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState("");
   const [courseList, setCourseList] = useState([]);
+
   useEffect(() => {
     setCourseList(courses);
   }, [courses]);
@@ -26,9 +27,10 @@ export const GamesContext = ({ children, courses }) => {
     setCourse(course);
     setDeleteDialog(true);
   };
-  const filteredList = courseList.filter((item) => item.name.includes(search));
+  const filteredList = courseList.filter((item) =>
+    item.name.toLowerCase().includes(search)
+  );
   const games = paginate(filteredList, currentPage, gamesPerPage);
-
   const asc = () => {
     setCourseList(orderBy(courseList, "price", "asc"));
   };
